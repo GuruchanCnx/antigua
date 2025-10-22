@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Journey Together – 8-Day Guatemala Retreat | June 27 – July 5, 2026</title>
-  <meta name="description" content="8-day Ayurvedic women's retreat in Guatemala. Yoga, vegetarian cooking, Mayan history, and sisterhood. Led by Jean Amabile & Ginger Hooven at Casa San Juan.">
+  <title>Journey Together – Guatemala Ayurvedic Retreat | June 27 – July 5, 2026</title>
+  <meta name="description" content="8-day women's retreat in Guatemala: yoga, vegetarian cooking, Mayan culture. Led by Jean Amabile at Casa San Juan. Only 11 spaces.">
   <style>
     :root {
       --terracotta: #C75B39;
@@ -41,7 +41,6 @@
       top: 0;
       background: rgba(248, 244, 227, 0.95);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       padding: 1rem 0;
       border-bottom: 1px solid var(--sand);
       z-index: 100;
@@ -50,19 +49,18 @@
       display: flex;
       justify-content: center;
       list-style: none;
-      gap: 1.2rem;
+      gap: 1rem;
       flex-wrap: wrap;
+      font-size: 0.95rem;
     }
     nav a {
       text-decoration: none;
       color: var(--indigo);
       font-weight: 500;
-      font-size: 0.95rem;
     }
     nav a:hover {
       color: var(--terracotta);
     }
-    /* PRACTICAL BAR – NOW ALWAYS VISIBLE */
     .practical-bar {
       background: var(--jade);
       color: white;
@@ -71,11 +69,8 @@
       font-size: 0.9rem;
       font-weight: 500;
     }
-    main {
-      margin-top: 0; /* no offset needed */
-    }
     section {
-      padding: 4.5rem 0;
+      padding: 4rem 0;
     }
     .hero {
       text-align: center;
@@ -84,7 +79,7 @@
     }
     .section-title {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       font-size: 2rem;
       color: var(--indigo);
     }
@@ -92,7 +87,7 @@
       background: white;
       border-radius: 16px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.07);
-      margin-bottom: 2.2rem;
+      margin-bottom: 2rem;
     }
     .card-content {
       padding: 1.8rem;
@@ -112,39 +107,34 @@
       background: #a84a2f;
       transform: translateY(-2px);
     }
-    .day {
+    .day, .info-block {
       background: white;
-      padding: 1.8rem;
-      margin-bottom: 1.6rem;
+      padding: 1.6rem;
+      margin-bottom: 1.4rem;
       border-left: 4px solid var(--ochre);
       border-radius: 0 10px 10px 0;
     }
-    .bio {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    .bio-card {
-      flex: 1;
-      min-width: 280px;
+    .collapse-section {
       background: white;
-      padding: 1.8rem;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      text-align: center;
+      margin-bottom: 1.8rem;
     }
-    .bio-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: var(--sand);
-      margin: 0 auto 1rem;
+    .collapse-header {
+      padding: 1.4rem 1.8rem;
+      cursor: pointer;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      font-size: 3rem;
+      font-weight: 600;
       color: var(--indigo);
+    }
+    .collapse-content {
+      padding: 0 1.8rem 1.8rem;
+      display: none;
+    }
+    .collapse-content.show {
+      display: block;
     }
     footer {
       background: var(--indigo);
@@ -176,129 +166,140 @@
       visibility: visible;
     }
     @media (max-width: 600px) {
+      nav ul { gap: 0.7rem; font-size: 0.85rem; }
       .section-title { font-size: 1.7rem; }
-      nav ul { gap: 0.8rem; font-size: 0.9rem; }
-      .day { padding: 1.4rem; }
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- NAVIGATION -->
   <nav>
     <ul>
       <li><a href="#home">Home</a></li>
-      <li><a href="#bios">Bios</a></li>
       <li><a href="#itinerary">Itinerary</a></li>
       <li><a href="#cuisine">Cuisine</a></li>
       <li><a href="#practical">Practical</a></li>
-      <li><a href="#contact">Reserve</a></li>
+      <li><a href="#reserve">Reserve</a></li>
     </ul>
   </nav>
 
-  <!-- ✅ FIXED: Practical Bar always visible -->
   <div class="practical-bar" id="practicalInfo">
-    🕗 Loading local time... | 🌡️ 25°C | 💰 1 CAD ≈ 5.8 GTQ
+    🕗 Loading... | 🌡️ 25°C | 💰 1 CAD ≈ 5.8 GTQ
   </div>
 
   <a href="#home" class="back-to-top" id="backToTop">↑</a>
 
   <main>
 
+  <!-- Hero -->
   <section id="home" class="hero">
     <div class="container">
-      <h1>You Are Called Home</h1>
-      <p>An 8-Day Ayurvedic & Cultural Retreat for Women in Guatemala</p>
-      <p>June 27 – July 5, 2026 • Casa San Juan, San Juan del Obispo</p>
-      <a href="#contact" class="btn">Reserve Your Sacred Space</a>
+      <h1>You’ve Earned This</h1>
+      <p style="font-size:1.2rem; max-width:700px; margin:1rem auto;">
+        An 8-day Ayurvedic & cultural retreat for women in Guatemala.<br>
+        Led by Jean Amabile at Casa San Juan • June 27 – July 5, 2026
+      </p>
+      <p style="font-style:italic; margin:1.2rem auto; max-width:650px;">
+        “Only 11 spaces. This is not a tour—it’s a homecoming.”
+      </p>
+      <a href="#reserve" class="btn">Reserve Your Sacred Space</a>
     </div>
   </section>
 
-  <!-- Bios -->
-  <section id="bios">
-    <div class="container">
-      <h2 class="section-title">Meet Your Guides</h2>
-      <div class="bio">
-        <div class="bio-card">
-          <div class="bio-img">J</div>
-          <h3>Jean Amabile</h3>
-          <p>73-year-old Canadian wellness guide and Ayurvedic nutritionist. Creates retreats where women reconnect through food, silence, and sisterhood.</p>
-        </div>
-        <div class="bio-card">
-          <div class="bio-img">G</div>
-          <h3>Ginger Hooven (Kamalesh)</h3>
-          <p>Host and yoga teacher at Casa San Juan. Offers online classes in English & Spanish. Gentle, intuitive style. <a href="https://www.youtube.com/@casasanjuan" target="_blank" style="color:var(--terracotta);">Watch her classes</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FULL ITINERARY – ENHANCED -->
+  <!-- Itinerary (Expanded by Default) -->
   <section id="itinerary" style="background:var(--sand);">
     <div class="container">
-      <h2 class="section-title">8-Day Itinerary: June 27 – July 5, 2026</h2>
-
+      <h2 class="section-title">Your 8-Day Journey</h2>
       <div class="day">
-        <h3>Saturday, June 27 – Arrival at Casa San Juan</h3>
-        <p><strong>Location:</strong> Casa San Juan, San Juan del Obispo (15 min from Antigua).<br>
-        Private airport transfer (45 min from La Aurora). Settle into your room. Light vegetarian dinner in the garden. Opening circle under the stars.</p>
+        <h3>Sat, June 27 – Arrival at Casa San Juan</h3>
+        <p>Private transfer to Casa San Juan (15 min from Antigua). Light vegetarian dinner. Opening circle in the garden.</p>
       </div>
-
       <div class="day">
-        <h3>Sunday, June 28 – San Juan del Obispo Village Tour</h3>
-        <p><strong>Distance:</strong> Walking distance from Casa San Juan.<br>
-        Morning yoga & breakfast. Guided walk through the historic village—visit the 17th-century palace of Francisco Marroquín, first bishop of the Americas. Lunch at <strong>La Casa de Marc</strong> (5-star, 2-min walk). Afternoon free for journaling or rest. Light dinner at Casa San Juan.</p>
+        <h3>Sun, June 28 – San Juan del Obispo</h3>
+        <p>Walking tour of the historic village—home to the 17th-century palace of Francisco Marroquín, first bishop of the Americas. Lunch at La Casa de Marc.</p>
       </div>
-
       <div class="day">
-        <h3>Monday, June 29 – Antigua with Elizabeth Bell</h3>
-        <p><strong>Distance:</strong> 15 km (15 min by private vehicle).<br>
-        Morning practice. Full historical walking tour of Antigua (UNESCO site) with renowned guide Elizabeth Bell. Lunch at <strong>Santo Domingo Hotel</strong>—a luxury retreat built on 16th-century Dominican monastery ruins. Free afternoon to explore galleries, shops, or relax in a courtyard café.</p>
+        <h3>Mon, June 29 – Antigua with Elizabeth Bell</h3>
+        <p>UNESCO walking tour. Lunch at Santo Domingo Hotel (built on 16th-century monastery ruins).</p>
       </div>
-
       <div class="day">
-        <h3>Tuesday, June 30 – Highland Mayan Villages</h3>
-        <p><strong>Distance:</strong> 45–60 min drive to Lake Atitlán villages.<br>
-        Full-day excursion to San Juan La Laguna and San Antonio Palopó. Witness backstrap loom weaving, natural dyeing, and black pottery. Share lunch with local families at a traditional <em>comedor</em>. Return by 6:00 PM.</p>
+        <h3>Fri, July 3 – Iximche Mayan Ruins</h3>
+        <p>Full-day trip to the Kaqchikel capital (1.5 hrs each way). Optional fire ceremony. Lunch at Cabana Suiso.</p>
       </div>
-
-      <div class="day">
-        <h3>Wednesday, July 1 – Antigua Artisan Market</h3>
-        <p><strong>Distance:</strong> 15 km (15 min).<br>
-        Morning yoga & breakfast. Visit Antigua’s Artisan Market—meet textile weavers, ceramicists, and chocolate makers. Lunch at <strong>Café Condesa</strong>. Free afternoon. Evening Yoga Nidra for deep restoration.</p>
+      <p style="text-align:center; margin-top:1.5rem;">
+        <a href="#" onclick="toggleFullItinerary(); return false;" style="color:var(--terracotta);">View Full Itinerary</a>
+      </p>
+      <div id="fullItinerary" style="display:none;">
+        <!-- Remaining days here -->
+        <div class="day"><h3>Tue, June 30</h3>Highland villages & local lunch.</div>
+        <div class="day"><h3>Wed, July 1</h3>Artisan Market & Yoga Nidra.</div>
+        <div class="day"><h3>Thu, July 2</h3>Cooking class with Jean & Ginger.</div>
+        <div class="day"><h3>Sat, July 4</h3>Spa & farewell dinner.</div>
+        <div class="day"><h3>Sun, July 5</h3>Departure.</div>
       </div>
-
-      <div class="day">
-        <h3>Thursday, July 2 – Cooking Class with Jean & Ginger</h3>
-        <p><strong>Location:</strong> Casa San Juan kitchen (on-site).<br>
-        Morning market visit in Antigua to select fresh produce. Return to Casa San Juan for a hands-on vegetarian cooking class led by Jean (Ayurvedic nutritionist) and Ginger. Prepare <em>pepián</em>, <em>tamales</em>, and <em>atole</em>. Share your creations for dinner.</p>
-      </div>
-
-      <div class="day">
-        <h3>Friday, July 3 – Iximche Mayan Ruins Day Trip</h3>
-        <p><strong>Distance:</strong> 55 km (1.5 hours each way).<br>
-        Early departure. Breakfast stop at El Pedregal. Guided tour of <strong>Iximche</strong>—capital of the Kaqchikel Maya (1470–1524), with temples, plazas, and ball courts. Optional Mayan fire ceremony. Lunch at <strong>Cabana Suiso</strong> with panoramic mountain views. Return by 7:00 PM.</p>
-      </div>
-
-      <div class="day">
-        <h3>Saturday, July 4 – Spa & Farewell Celebration</h3>
-        <p><strong>Location:</strong> Casa San Juan + Antigua.<br>
-        Morning yoga. Optional spa treatments (massage, herbal steam). Farewell dinner at <strong>Mesón Panza Verde</strong>—multi-course vegetarian feast in a historic Moorish mansion.</p>
-      </div>
-
-      <div class="day">
-        <h3>Sunday, July 5 – Departure</h3>
-        <p>Final sunrise yoga, meditation, and breakfast at Casa San Juan. Private airport transfers based on flight times.</p>
-      </div>
-
     </div>
   </section>
 
-  <!-- Cuisine, Practical, Reserve sections remain as before (enhanced copy included in full version) -->
+  <!-- Collapsible Sections -->
+  <section id="cuisine">
+    <div class="container">
+      <div class="collapse-section">
+        <div class="collapse-header" onclick="toggleSection('cuisine-content')">
+          <span>Ayurvedic Vegetarian Guatemalan Cuisine</span>
+          <span>▼</span>
+        </div>
+        <div class="collapse-content" id="cuisine-content">
+          <div class="card-content">
+            <p>All meals are 100% vegetarian, seasonal, and prepared with Ayurvedic balance in mind.</p>
+            <p><strong>Cooking Class Highlights:</strong></p>
+            <ul>
+              <li><em>Pepián de Calabaza</em>: Nutty stew with squash, sesame, and warm spices</li>
+              <li><em>Tamales Colorados</em>: Masa wrapped in banana leaves, steamed with vegetables</li>
+              <li><em>Jocón de Hongos</em>: Green tomatillo-cilantro stew with mushrooms</li>
+            </ul>
+            <p>Vegan, gluten-free, and high-protein options available.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- For brevity, other sections are implied with same quality as previous version -->
-  <!-- In full deployment, include all sections from prior message -->
+  <section id="practical">
+    <div class="container">
+      <div class="collapse-section">
+        <div class="collapse-header" onclick="toggleSection('practical-content')">
+          <span>Practical Guide: What to Bring</span>
+          <span>▼</span>
+        </div>
+        <div class="collapse-content" id="practical-content">
+          <div class="card-content">
+            <p><strong>Clothing:</strong> Yoga layers, walking sandals, light rain jacket, casual dress for farewell dinner.</p>
+            <p><strong>Beauty:</strong> Minimal makeup, favorite earrings, reef-safe sunscreen, lip balm.</p>
+            <p><strong>Essentials:</strong> Reusable water bottle, journal, power adapter (Type A/B), travel insurance.</p>
+            <p><strong>Money:</strong> 1 CAD ≈ 5.8 GTQ. $20–40 CAD/day for souvenirs/tips.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reserve -->
+  <section id="reserve" style="text-align:center; background:var(--sand);">
+    <div class="container">
+      <h2 class="section-title">Reserve Your Sacred Space</h2>
+      <p style="max-width:700px; margin:0 auto 1.5rem;">
+        Only 11 women will gather at Casa San Juan this June. This is your invitation to breathe, connect, and remember who you are.
+      </p>
+      <a href="https://buy.stripe.com/..." target="_blank" class="btn">Pay $500 Deposit via Stripe</a>
+      <p style="margin:1.2rem 0;">
+        Or <a href="mailto:jeanmamabile@gmail.com?subject=Retreat Booking - June 2026" style="color:var(--terracotta);">email Jean</a> for the booking form.
+      </p>
+      <p style="font-size:0.9rem;">
+        <strong>Includes:</strong> 7 nights, 21+ vegetarian meals, daily yoga, 3 cooking classes, all tours & transport.
+      </p>
+    </div>
+  </section>
 
   </main>
 
@@ -310,24 +311,33 @@
   </footer>
 
   <script>
+    // Live Practical Info
     function updatePracticalInfo() {
       const now = new Date();
-      const gtTime = now.toLocaleTimeString('en-US', { 
-        timeZone: 'America/Guatemala',
-        hour: '2-digit',
-        minute: '2-digit'
-      });
+      const gtTime = now.toLocaleTimeString('en-US', { timeZone: 'America/Guatemala' });
       document.getElementById('practicalInfo').textContent = 
         `🕗 Local Time: ${gtTime} | 🌡️ 25°C | 💰 1 CAD ≈ 5.8 GTQ`;
     }
     updatePracticalInfo();
     setInterval(updatePracticalInfo, 60000);
 
+    // Back to Top
     window.addEventListener('scroll', () => {
       const btn = document.getElementById('backToTop');
       if (window.scrollY > 400) btn.classList.add('show');
       else btn.classList.remove('show');
     });
+
+    // Toggle Functions
+    function toggleSection(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('show');
+    }
+
+    function toggleFullItinerary() {
+      const el = document.getElementById('fullItinerary');
+      el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    }
   </script>
 </body>
 </html>
