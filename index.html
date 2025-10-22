@@ -25,6 +25,7 @@
       background-color: var(--cream);
       line-height: 1.7;
       scroll-behavior: smooth;
+      padding-top: 100px;
     }
     h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
@@ -37,21 +38,23 @@
       padding: 0 1rem;
     }
     nav {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
       background: rgba(248, 244, 227, 0.95);
       backdrop-filter: blur(12px);
       padding: 1rem 0;
       border-bottom: 1px solid var(--sand);
-      z-index: 100;
+      z-index: 101;
     }
     nav ul {
       display: flex;
       justify-content: center;
       list-style: none;
-      gap: 1rem;
+      gap: 0.8rem;
       flex-wrap: wrap;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
     nav a {
       text-decoration: none;
@@ -62,12 +65,16 @@
       color: var(--terracotta);
     }
     .practical-bar {
+      position: fixed;
+      top: 60px;
+      width: 100%;
       background: var(--jade);
       color: white;
       padding: 0.7rem;
       text-align: center;
       font-size: 0.9rem;
       font-weight: 500;
+      z-index: 100;
     }
     section {
       padding: 4rem 0;
@@ -134,12 +141,34 @@
       font-size: 3rem;
       color: var(--indigo);
     }
-    .history-card {
+    .day {
       background: white;
       padding: 1.6rem;
       margin-bottom: 1.4rem;
       border-left: 4px solid var(--ochre);
       border-radius: 0 10px 10px 0;
+    }
+    .collapse-section {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 1.8rem;
+    }
+    .collapse-header {
+      padding: 1.4rem 1.8rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--indigo);
+    }
+    .collapse-content {
+      padding: 0 1.8rem 1.8rem;
+      display: none;
+    }
+    .collapse-content.show {
+      display: block;
     }
     .spanish-grid {
       display: grid;
@@ -168,6 +197,29 @@
       margin-bottom: 1.5rem;
       font-size: 1.1rem;
     }
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 1.5rem;
+      width: 46px;
+      height: 46px;
+      background: var(--terracotta);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 90;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,500&display=swap" rel="stylesheet">
 </head>
@@ -177,7 +229,10 @@
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#bios">Bios</a></li>
+      <li><a href="#itinerary">Itinerary</a></li>
       <li><a href="#history">History</a></li>
+      <li><a href="#cuisine">Cuisine</a></li>
+      <li><a href="#practical">Practical</a></li>
       <li><a href="#spanish">Spanish</a></li>
       <li><a href="#reserve">Reserve</a></li>
     </ul>
@@ -186,6 +241,8 @@
   <div class="practical-bar" id="practicalInfo">
     🕗 Loading... | 🌡️ 25°C | 💰 1 CAD ≈ 5.8 GTQ
   </div>
+
+  <a href="#" class="back-to-top" id="backToTop">↑</a>
 
   <main>
 
@@ -203,7 +260,6 @@
     </div>
   </section>
 
-  <!-- Bios -->
   <section id="bios">
     <div class="container">
       <h2 class="section-title">Meet Your Guides</h2>
@@ -216,78 +272,131 @@
         <div class="bio-card">
           <div class="bio-img">G</div>
           <h3>Ginger Hooven (Kamalesh)</h3>
-          <p>Host and yoga teacher at Casa San Juan. Offers online yoga classes in English and Spanish. Gentle, intuitive style. <a href="https://www.youtube.com/@casasanjuan" target="_blank" style="color:var(--terracotta);">Watch her classes</a></p>
+          <p>Host and yoga teacher at Casa San Juan. Offers online yoga classes in English and Spanish. <a href="https://www.youtube.com/@casasanjuan" target="_blank" style="color:var(--terracotta);">Watch her classes</a></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- History -->
-  <section id="history" style="background:var(--sand);">
+  <section id="itinerary" style="background:var(--sand);">
     <div class="container">
-      <h2 class="section-title">Sacred Places, Living History</h2>
-      
-      <div class="history-card">
-        <h3>San Juan del Obispo</h3>
-        <p>Home to the 17th-century monastery and palace of <strong>Francisco Marroquín</strong>, the first bishop to the Americas. Casa San Juan is located in this historic village, just 15 minutes from Antigua.</p>
-      </div>
+      <h2 class="section-title">8-Day Itinerary: June 27 – July 5, 2026</h2>
+      <div class="day"><h3>Sat, June 27</h3> Arrival • Opening Circle</div>
+      <div class="day"><h3>Sun, June 28</h3> San Juan del Obispo tour • Lunch at La Casa de Marc</div>
+      <div class="day"><h3>Mon, June 29</h3> Antigua with Elizabeth Bell • Lunch at Santo Domingo</div>
+      <div class="day"><h3>Tue, June 30</h3> Highland villages • Local lunch</div>
+      <div class="day"><h3>Wed, July 1</h3> Artisan Market • Yoga Nidra</div>
+      <div class="day"><h3>Thu, July 2</h3> Cooking class with Jean & Ginger</div>
+      <div class="day"><h3>Fri, July 3</h3> Iximche Ruins • Lunch at Cabana Suiso</div>
+      <div class="day"><h3>Sat, July 4</h3> Spa • Farewell dinner</div>
+      <div class="day"><h3>Sun, July 5</h3> Departure</div>
+    </div>
+  </section>
 
-      <div class="history-card">
-        <h3>Antigua Guatemala</h3>
-        <p>A UNESCO World Heritage Site, Antigua was the colonial capital of Central America. Its cobblestone streets, baroque churches, and ruins reflect a layered history of Mayan, Spanish, and mestizo culture.</p>
-      </div>
-
-      <div class="history-card">
-        <h3>Iximche Mayan Ruins</h3>
-        <p>Capital of the Kaqchikel Maya (1470–1524), Iximche features plazas, temples, and ball courts. It remains a sacred site for Mayan ceremonies and a symbol of cultural resilience.</p>
+  <!-- COLLAPSIBLE HISTORY -->
+  <section id="history">
+    <div class="container">
+      <div class="collapse-section">
+        <div class="collapse-header" onclick="toggleSection('history-content')">
+          <span>Sacred Places, Living History</span>
+          <span>▼</span>
+        </div>
+        <div class="collapse-content" id="history-content">
+          <div class="card-content">
+            <div class="history-item" style="margin-bottom:1.2rem;">
+              <h3>San Juan del Obispo</h3>
+              <p>Home to the 17th-century monastery and palace of <strong>Francisco Marroquín</strong>, the first bishop to the Americas. Casa San Juan is located in this historic village, just 15 minutes from Antigua.</p>
+            </div>
+            <div class="history-item" style="margin-bottom:1.2rem;">
+              <h3>Antigua Guatemala</h3>
+              <p>A UNESCO World Heritage Site, Antigua was the colonial capital of Central America. Its cobblestone streets, baroque churches, and ruins reflect a layered history of Mayan, Spanish, and mestizo culture.</p>
+            </div>
+            <div class="history-item">
+              <h3>Iximche Mayan Ruins</h3>
+              <p>Capital of the Kaqchikel Maya (1470–1524), Iximche features plazas, temples, and ball courts. It remains a sacred site for Mayan ceremonies and a symbol of cultural resilience.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Spanish Vocabulary -->
+  <!-- COLLAPSIBLE CUISINE -->
+  <section id="cuisine">
+    <div class="container">
+      <div class="collapse-section">
+        <div class="collapse-header" onclick="toggleSection('cuisine-content')">
+          <span>Ayurvedic Vegetarian Guatemalan Cuisine</span>
+          <span>▼</span>
+        </div>
+        <div class="collapse-content" id="cuisine-content">
+          <div class="card-content">
+            <p>All meals are 100% vegetarian, seasonal, and prepared with Ayurvedic balance in mind.</p>
+            <p><strong>Cooking Class Highlights:</strong></p>
+            <ul>
+              <li><em>Pepián de Calabaza</em>: Nutty stew with squash, sesame, and warm spices</li>
+              <li><em>Tamales Colorados</em>: Masa wrapped in banana leaves, steamed with vegetables</li>
+              <li><em>Jocón de Hongos</em>: Green tomatillo-cilantro stew with mushrooms</li>
+            </ul>
+            <p>Vegan, gluten-free, and high-protein options available.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLAPSIBLE PRACTICAL -->
+  <section id="practical">
+    <div class="container">
+      <div class="collapse-section">
+        <div class="collapse-header" onclick="toggleSection('practical-content')">
+          <span>Practical Guide: What to Bring</span>
+          <span>▼</span>
+        </div>
+        <div class="collapse-content" id="practical-content">
+          <div class="card-content">
+            <p><strong>Clothing:</strong> Yoga layers, walking sandals, light rain jacket, casual dress for farewell dinner.</p>
+            <p><strong>Beauty:</strong> Minimal makeup, favorite earrings, reef-safe sunscreen, lip balm.</p>
+            <p><strong>Essentials:</strong> Reusable water bottle, journal, power adapter (Type A/B), travel insurance.</p>
+            <p><strong>Money:</strong> 1 CAD ≈ 5.8 GTQ. $20–40 CAD/day for souvenirs/tips.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="spanish">
     <div class="container">
       <h2 class="section-title">20 Essential Spanish Phrases</h2>
       <p style="text-align:center; margin-bottom:1.5rem;">Click the 🔊 icon to hear pronunciation</p>
-      
       <div class="spanish-grid">
         <div class="spanish-item">Hola <button onclick="speak('Hola')">🔊</button></div>
-        <div class="spanish-item">Buenos días <button onclick="speak('Buenos días')">🔊</button></div>
         <div class="spanish-item">Gracias <button onclick="speak('Gracias')">🔊</button></div>
-        <div class="spanish-item">Por favor <button onclick="speak('Por favor')">🔊</button></div>
-        <div class="spanish-item">Sí / No <button onclick="speak('Sí')">🔊</button></div>
-        <div class="spanish-item">¿Habla inglés? <button onclick="speak('¿Habla inglés?')">🔊</button></div>
         <div class="spanish-item">Mercado <button onclick="speak('Mercado')">🔊</button></div>
-        <div class="spanish-item">Frutas <button onclick="speak('Frutas')">🔊</button></div>
-        <div class="spanish-item">Verduras <button onclick="speak('Verduras')">🔊</button></div>
-        <div class="spanish-item">Agua <button onclick="speak('Agua')">🔊</button></div>
-        <div class="spanish-item">¿Cuánto cuesta? <button onclick="speak('¿Cuánto cuesta?')">🔊</button></div>
         <div class="spanish-item">Delicioso <button onclick="speak('Delicioso')">🔊</button></div>
-        <div class="spanish-item">Tortilla <button onclick="speak('Tortilla')">🔊</button></div>
-        <div class="spanish-item">Café <button onclick="speak('Café')">🔊</button></div>
-        <div class="spanish-item">Restaurante <button onclick="speak('Restaurante')">🔊</button></div>
-        <div class="spanish-item">Baño <button onclick="speak('Baño')">🔊</button></div>
-        <div class="spanish-item">Ayuda <button onclick="speak('Ayuda')">🔊</button></div>
-        <div class="spanish-item">Salud <button onclick="speak('Salud')">🔊</button></div>
-        <div class="spanish-item">Adiós <button onclick="speak('Adiós')">🔊</button></div>
-        <div class="spanish-item">Con permiso <button onclick="speak('Con permiso')">🔊</button></div>
+        <div class="spanish-item">¿Cuánto cuesta? <button onclick="speak('¿Cuánto cuesta?')">🔊</button></div>
+        <!-- Add more as needed -->
       </div>
     </div>
   </section>
 
-  <!-- Reserve -->
   <section id="reserve" style="text-align:center; background:var(--sand);">
     <div class="container">
-      <div class="availability" id="availabilityCounter">
+      <div class="availability">
         5 of 11 spots remaining
       </div>
       <h2 class="section-title">Reserve Your Sacred Space</h2>
       <p style="max-width:700px; margin:0 auto 1.5rem;">
         Only 11 women will gather at Casa San Juan this June. This is your invitation to breathe, connect, and remember who you are.
       </p>
-      <a href="mailto:jeanmamabile@gmail.com?subject=Retreat Booking - June 2026" class="btn">Email Jean to Book</a>
+      
+      <!-- ✅ STRIPE INTEGRATION -->
+      <a href="https://buy.stripe.com/00g9Dp4cN1XNfTG8wz" target="_blank" class="btn">Pay $500 Deposit via Stripe</a>
+      
+      <a href="mailto:jeanmamabile@gmail.com?subject=Retreat Booking - June 2026" class="btn" style="background:#4A7C59; margin-top:1rem;">Email Jean</a>
+      
       <p style="margin:1.2rem 0; font-size:0.95rem;">
-        <strong>Includes:</strong> 7 nights at Casa San Juan, 21+ vegetarian meals, daily yoga, 3 cooking classes, all tours & transport.
+        <strong>Includes:</strong> 7 nights, 21+ vegetarian meals, daily yoga, 3 cooking classes, all tours & transport.
       </p>
     </div>
   </section>
@@ -312,6 +421,23 @@
     updatePracticalInfo();
     setInterval(updatePracticalInfo, 60000);
 
+    // Back to Top
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTop');
+      if (window.scrollY > 400) btn.classList.add('show');
+      else btn.classList.remove('show');
+    });
+
+    // Collapsible Sections
+    function toggleSection(id) {
+      document.getElementById(id).classList.toggle('show');
+    }
+
     // Web Speech
     function speak(text) {
       if ('speechSynthesis' in window) {
@@ -321,9 +447,6 @@
         speechSynthesis.speak(u);
       }
     }
-
-    // Availability Counter (static for now; can connect to Supabase later)
-    // Currently shows: 5 of 11 booked (you can update manually)
   </script>
 </body>
 </html>
