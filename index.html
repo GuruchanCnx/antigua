@@ -24,6 +24,7 @@
       color: var(--indigo);
       background-color: var(--cream);
       line-height: 1.7;
+      scroll-behavior: smooth;
       padding-top: 120px;
     }
     h1, h2, h3, h4 {
@@ -36,13 +37,12 @@
       margin: 0 auto;
       padding: 0 1rem;
     }
-    /* ✅ FIXED NAVBAR */
     nav {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(248, 244, 227, 0.95);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(12px);
       padding: 1rem 0;
       border-bottom: 1px solid var(--sand);
@@ -57,13 +57,14 @@
       padding: 0 1rem;
     }
     .nav-logo {
-      font-weight: 600;
-      font-size: 1.2rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--terracotta);
     }
     .nav-menu {
       display: flex;
       list-style: none;
-      gap: 0.9rem;
+      gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
       margin: 0;
@@ -72,10 +73,7 @@
       text-decoration: none;
       color: var(--indigo);
       font-weight: 500;
-      font-size: 0.92rem;
-    }
-    .nav-menu a:hover {
-      color: var(--terracotta);
+      font-size: 0.95rem;
     }
     .hamburger {
       display: none;
@@ -95,79 +93,158 @@
       width: 100%;
       background: var(--jade);
       color: white;
-      padding: 0.7rem;
+      padding: 0.6rem;
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       z-index: 100;
     }
     section {
-      padding: 4rem 0;
+      padding: 4.5rem 0;
     }
     .hero {
       text-align: center;
-      padding: 6rem 0 4.5rem;
-      background: linear-gradient(rgba(74,124,89,0.04), rgba(199,91,57,0.04));
+      padding: 6rem 0 5rem;
+      background: linear-gradient(to bottom, rgba(248,244,227,0.3), rgba(248,244,227,0));
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1.2rem;
+      color: var(--indigo);
     }
     .section-title {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 2.2rem;
       font-size: 2rem;
       color: var(--indigo);
     }
     .collapse-section {
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom: 1.8rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      margin-bottom: 2rem;
     }
     .collapse-header {
-      padding: 1.4rem 1.8rem;
+      padding: 1.5rem 2rem;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-weight: 600;
       color: var(--indigo);
+      font-size: 1.2rem;
     }
     .collapse-content {
-      padding: 0 1.8rem 1.8rem;
+      padding: 0 2rem 2rem;
       display: none;
     }
     .collapse-content.show {
       display: block;
     }
+    .bio {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .bio-card {
+      flex: 1;
+      min-width: 280px;
+      background: white;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      text-align: center;
+      max-width: 450px;
+    }
+    .bio-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: var(--sand);
+      margin: 0 auto 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.2rem;
+      color: var(--indigo);
+      font-weight: bold;
+    }
     .spanish-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 0.8rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
     }
     .spanish-item {
       background: var(--sand);
-      padding: 0.7rem;
-      border-radius: 6px;
+      padding: 1rem;
+      border-radius: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.95rem;
+    }
+    .spanish-text {
+      text-align: left;
+    }
+    .spanish-translation {
+      font-size: 0.85rem;
+      color: var(--indigo);
+      opacity: 0.75;
+      margin-top: 0.3rem;
     }
     .btn {
       display: inline-block;
       background: var(--terracotta);
       color: white;
-      padding: 0.9rem 2rem;
+      padding: 0.95rem 2.2rem;
       text-decoration: none;
       border-radius: 8px;
       font-family: 'Playfair Display', serif;
       font-weight: 600;
       transition: all 0.3s;
+      font-size: 1.05rem;
+    }
+    .btn:hover {
+      background: #a84a2f;
+      transform: translateY(-2px);
+    }
+    .reserve-btns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
     }
     footer {
       background: var(--indigo);
       color: white;
       text-align: center;
       padding: 3rem 0 2rem;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 1.5rem;
+      width: 48px;
+      height: 48px;
+      background: var(--terracotta);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 90;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
     }
     @media (max-width: 768px) {
       .nav-menu {
@@ -180,7 +257,7 @@
         text-align: center;
         transition: 0.3s;
         box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-        padding: 1.5rem 0;
+        padding: 1.8rem 0;
       }
       .nav-menu.active {
         left: 0;
@@ -191,13 +268,14 @@
       body {
         padding-top: 140px;
       }
+      .hero h1 { font-size: 2rem; }
+      .reserve-btns { flex-direction: column; align-items: center; }
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ✅ FIXED NAVBAR WITH HAMBURGER FOR MOBILE -->
   <nav>
     <div class="nav-container">
       <div class="nav-logo">Journey Together</div>
@@ -205,7 +283,6 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#bios">Bios</a></li>
         <li><a href="#itinerary">Itinerary</a></li>
-        <li><a href="#history">History</a></li>
         <li><a href="#cuisine">Cuisine</a></li>
         <li><a href="#practical">Practical</a></li>
         <li><a href="#spanish">Spanish</a></li>
@@ -223,12 +300,184 @@
     🕗 Loading... | 🌡️ 25°C | 💰 1 CAD ≈ 5.8 GTQ
   </div>
 
-  <!-- Rest of your content remains unchanged -->
-  <!-- (Bios, Itinerary, History, Cuisine, Practical, Spanish, Reserve sections as in previous full code) -->
+  <a href="#" class="back-to-top" id="backToTop">↑</a>
 
   <main>
-    <!-- Hero, Bios, Itinerary (collapsible with full descriptions), History, Cuisine, Practical, Spanish (30 phrases), Reserve -->
-    <!-- For brevity, sections are implied — they match your approved content -->
+
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Return to What Matters</h1>
+      <p>
+        An 8-day Ayurvedic & cultural retreat for women in Guatemala.<br>
+        June 27 – July 5, 2026 • Casa San Juan, San Juan del Obispo
+      </p>
+      <p style="font-style:italic; max-width:650px; margin:0 auto;">
+        “Behind the vine-filled wall, you’ll find a lush garden—and a circle of sisters waiting to welcome you.”
+      </p>
+      <a href="#reserve" class="btn">Reserve Your Space – Only 11 Available</a>
+    </div>
+  </section>
+
+  <section id="bios">
+    <div class="container">
+      <h2 class="section-title">Meet Your Guides</h2>
+      <div class="bio">
+        <div class="bio-card">
+          <div class="bio-img">J</div>
+          <h3>Jean Amabile</h3>
+          <p>73-year-old Canadian wellness guide and Ayurvedic nutritionist. Creates intimate retreats where women reconnect through food, silence, and sisterhood.</p>
+        </div>
+        <div class="bio-card">
+          <div class="bio-img">G</div>
+          <h3>Ginger Hooven (Kamalesh)</h3>
+          <p>Host and yoga teacher at Casa San Juan. Offers online yoga classes in English and Spanish. <a href="https://www.casasanjuan.com.gt" target="_blank" style="color:var(--terracotta);">Learn more about Casa San Juan</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="itinerary" style="background:var(--sand);">
+    <div class="container">
+      <div class="collapse-section">
+        <div class="collapse-header" onclick="toggleSection('itinerary-content')">
+          <span>8-Day Itinerary: June 27 – July 5, 2026</span>
+          <span>▼</span>
+        </div>
+        <div class="collapse-content" id="itinerary-content">
+          <div style="padding:0 1rem;">
+            <div style="margin-bottom:1.4rem;"><strong>Sat, June 27</strong> – Arrival at Casa San Juan. Light vegetarian dinner. Opening circle.</div>
+            <div style="margin-bottom:1.4rem;"><strong>Sun, June 28</strong> – San Juan del Obispo village tour. Lunch at La Casa de Marc.</div>
+            <div style="margin-bottom:1.4rem;"><strong>Mon, June 29</strong> – Antigua walking tour with Elizabeth Bell. Lunch at Santo Domingo.</div>
+            <div style="margin-bottom:1.4rem;"><strong>Tue, June 30</strong> – Highland villages (San Juan La Laguna, San Antonio Palopó).</div>
+            <div style="margin-bottom:1.4rem;"><strong>Wed, July 1</strong> – Antigua Artisan Market. Yoga Nidra.</div>
+            <div style="margin-bottom:1.4rem;"><strong>Thu, July 2</strong> – Cooking class with Jean & Ginger at Casa San Juan.</div>
+            <div style="margin-bottom:1.4rem;"><strong>Fri, July 3</strong> – Iximche Mayan Ruins day trip. Optional fire ceremony.</div>
+            <div style="margin-bottom:1.4rem;"><strong>Sat, July 4</strong> – Spa. Farewell dinner at Mesón Panza Verde.</div>
+            <div><strong>Sun, July 5</strong> – Departure.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cuisine">
+    <div class="container">
+      <div class="collapse-section">
+        <div class="collapse-header" onclick="toggleSection('cuisine-content')">
+          <span>Ayurvedic Vegetarian Guatemalan Cuisine</span>
+          <span>▼</span>
+        </div>
+        <div class="collapse-content" id="cuisine-content">
+          <div style="padding:0 1rem;">
+            <p>All meals are 100% vegetarian, seasonal, and prepared with Ayurvedic balance in mind.</p>
+            <p><strong>Cooking Class Highlights:</strong></p>
+            <ul style="padding-left:1.5rem; margin:0.8rem 0;">
+              <li><em>Pepián de Calabaza</em>: Nutty stew with squash, sesame, and warm spices</li>
+              <li><em>Tamales Colorados</em>: Masa wrapped in banana leaves</li>
+              <li><em>Jocón de Hongos</em>: Green tomatillo-cilantro stew</li>
+            </ul>
+            <p>Vegan, gluten-free, and high-protein options available.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="practical">
+    <div class="container">
+      <div class="collapse-section">
+        <div class="collapse-header" onclick="toggleSection('practical-content')">
+          <span>Practical Guide: What to Bring</span>
+          <span>▼</span>
+        </div>
+        <div class="collapse-content" id="practical-content">
+          <div style="padding:0 1rem;">
+            <p><strong>Clothing:</strong> Yoga layers, walking sandals, light rain jacket, casual dress for farewell dinner.</p>
+            <p><strong>Beauty:</strong> Minimal makeup, favorite earrings, reef-safe sunscreen, lip balm.</p>
+            <p><strong>Essentials:</strong> Reusable water bottle, journal, power adapter (Type A/B), travel insurance.</p>
+            <p><strong>Money:</strong> 1 CAD ≈ 5.8 GTQ. $20–40 CAD/day for souvenirs/tips.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="spanish">
+    <div class="container">
+      <div class="collapse-section">
+        <div class="collapse-header" onclick="toggleSection('spanish-content')">
+          <span>30 Essential Spanish Phrases</span>
+          <span>▼</span>
+        </div>
+        <div class="collapse-content" id="spanish-content">
+          <div class="card-content">
+            <p style="text-align:center; margin-bottom:1.2rem; font-style:italic;">
+              Click 🔊 to hear native Latin American Spanish pronunciation
+            </p>
+            <div class="spanish-grid">
+              <div class="spanish-item">
+                <div class="spanish-text">
+                  <div>Hola</div>
+                  <div class="spanish-translation">Hello</div>
+                </div>
+                <button onclick="speak('Hola', 'es-419')">🔊</button>
+              </div>
+              <div class="spanish-item">
+                <div class="spanish-text">
+                  <div>Gracias</div>
+                  <div class="spanish-translation">Thank you</div>
+                </div>
+                <button onclick="speak('Gracias', 'es-419')">🔊</button>
+              </div>
+              <div class="spanish-item">
+                <div class="spanish-text">
+                  <div>¿Habla inglés?</div>
+                  <div class="spanish-translation">Do you speak English?</div>
+                </div>
+                <button onclick="speak('¿Habla inglés?', 'es-419')">🔊</button>
+              </div>
+              <div class="spanish-item">
+                <div class="spanish-text">
+                  <div>Mercado</div>
+                  <div class="spanish-translation">Market</div>
+                </div>
+                <button onclick="speak('Mercado', 'es-419')">🔊</button>
+              </div>
+              <div class="spanish-item">
+                <div class="spanish-text">
+                  <div>Delicioso</div>
+                  <div class="spanish-translation">Delicious</div>
+                </div>
+                <button onclick="speak('Delicioso', 'es-419')">🔊</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reserve" style="text-align:center; background:var(--sand);">
+    <div class="container">
+      <div class="availability" style="font-weight:600; color:var(--terracotta); margin-bottom:1.5rem; font-size:1.1rem;">
+        5 of 11 spots remaining
+      </div>
+      <h2 class="section-title">Reserve Your Sacred Space</h2>
+      <p style="max-width:700px; margin:0 auto 1.5rem;">
+        Only 11 women will gather at Casa San Juan this June. This is your invitation to breathe, connect, and remember who you are.
+      </p>
+      
+      <div class="reserve-btns">
+        <a href="mailto:jeanmamabile@gmail.com?subject=Retreat Booking - June 2026" class="btn">Email Jean to Book</a>
+        <a href="#" id="downloadPdf" class="btn" style="background:#2D3142;">Download Itinerary (PDF)</a>
+      </div>
+      
+      <p style="margin:1.2rem 0; font-size:0.95rem;">
+        <strong>Includes:</strong> 7 nights at Casa San Juan, 21+ vegetarian meals, daily yoga, 3 cooking classes, all tours & transport.
+      </p>
+    </div>
+  </section>
+
   </main>
 
   <footer>
@@ -238,22 +487,19 @@
     </div>
   </footer>
 
-  <!-- ✅ ENHANCED PDF GENERATOR -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
-    // Mobile Menu Toggle
+    // Mobile Menu
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('navMenu').classList.toggle('active');
     });
-
-    // Close menu when clicking a link (mobile)
     document.querySelectorAll('.nav-menu a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('navMenu').classList.remove('active');
       });
     });
 
-    // Live Practical Info
+    // Practical Info
     function updatePracticalInfo() {
       const now = new Date();
       const gtTime = now.toLocaleTimeString('en-US', { timeZone: 'America/Guatemala' });
@@ -263,76 +509,104 @@
     updatePracticalInfo();
     setInterval(updatePracticalInfo, 60000);
 
+    // Back to Top
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTop');
+      if (window.scrollY > 400) btn.classList.add('show');
+      else btn.classList.remove('show');
+    });
+
     // Collapsible Sections
     function toggleSection(id) {
       document.getElementById(id).classList.toggle('show');
     }
 
     // Web Speech
-    function speak(text) {
+    function speak(text, lang = 'es-419') {
       if ('speechSynthesis' in window) {
         const u = new SpeechSynthesisUtterance(text);
-        u.lang = 'es-ES';
+        u.lang = lang;
         u.rate = 0.9;
         speechSynthesis.speak(u);
       }
     }
 
-    // ✅ FULL PDF WITH ALL SECTIONS
-    document.getElementById('downloadPdf')?.addEventListener('click', (e) => {
+    // ✅ FULLY EXPANDED PDF GENERATOR
+    document.getElementById('downloadPdf').addEventListener('click', (e) => {
       e.preventDefault();
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF('p', 'mm', 'a4');
       let y = 20;
 
-      // Helper to add text with wrapping
-      const addText = (text, x, y, fontSize = 12, fontWeight = 'normal') => {
-        doc.setFont('times', fontWeight);
-        doc.setFontSize(fontSize);
-        const lines = doc.splitTextToSize(text, 170);
-        doc.text(lines, x, y);
-        return y + (lines.length * 7);
+      const addHeading = (text, size = 16) => {
+        doc.setFont('times', 'bold');
+        doc.setFontSize(size);
+        doc.text(text, 20, y);
+        y += 12;
       };
 
-      y = addText("Journey Together – Guatemala Retreat", 20, y, 18, 'bold');
-      y = addText("June 27 – July 5, 2026 • Casa San Juan, San Juan del Obispo", 20, y + 5);
-      y = addText("Led by Jean Amabile & Ginger Hooven", 20, y + 8);
+      const addBody = (text, size = 12) => {
+        doc.setFont('times', 'normal');
+        doc.setFontSize(size);
+        const lines = doc.splitTextToSize(text, 170);
+        doc.text(lines, 20, y);
+        y += lines.length * 7 + 4;
+      };
 
-      y = addText("MEET YOUR GUIDES", 20, y + 12, 14, 'bold');
-      y = addText("Jean Amabile (73): Canadian wellness guide, Ayurvedic nutritionist, creator of intimate retreats for women.", 20, y + 6);
-      y = addText("Ginger Hooven (Kamalesh): Host and yoga teacher at Casa San Juan. Offers online classes in English & Spanish.", 20, y + 6);
+      // Title
+      addHeading("Journey Together – Guatemala Retreat", 20);
+      addBody("June 27 – July 5, 2026 • Casa San Juan, San Juan del Obispo");
 
-      y = addText("8-DAY ITINERARY", 20, y + 10, 14, 'bold');
-      y = addText("Sat, June 27: Arrival at Casa San Juan. Light vegetarian dinner. Opening circle.", 20, y + 6);
-      y = addText("Sun, June 28: San Juan del Obispo village tour. Lunch at La Casa de Marc.", 20, y + 6);
-      y = addText("Mon, June 29: Antigua walking tour with Elizabeth Bell. Lunch at Santo Domingo.", 20, y + 6);
-      y = addText("Tue, June 30: Highland villages (San Juan La Laguna, San Antonio Palopó).", 20, y + 6);
-      y = addText("Wed, July 1: Antigua Artisan Market. Yoga Nidra.", 20, y + 6);
-      y = addText("Thu, July 2: Cooking class with Jean & Ginger at Casa San Juan.", 20, y + 6);
-      y = addText("Fri, July 3: Iximche Mayan Ruins day trip. Optional fire ceremony.", 20, y + 6);
-      y = addText("Sat, July 4: Spa. Farewell dinner at Mesón Panza Verde.", 20, y + 6);
-      y = addText("Sun, July 5: Departure.", 20, y + 6);
+      // Bios
+      addHeading("Meet Your Guides", 16);
+      addBody("Jean Amabile (73): Canadian wellness guide and Ayurvedic nutritionist. Jean creates intimate retreats where women reconnect through food, silence, and sisterhood.");
+      addBody("Ginger Hooven (Kamalesh): Host and yoga teacher at Casa San Juan. Offers online yoga classes in English and Spanish. Visit Casa San Juan’s YouTube channel to experience her gentle, intuitive teaching style.");
 
-      y = addText("AYURVEDIC VEGETARIAN CUISINE", 20, y + 10, 14, 'bold');
-      y = addText("All meals are 100% vegetarian, seasonal, and Ayurvedic-balanced.", 20, y + 6);
-      y = addText("• Pepián de Calabaza: Nutty squash stew with sesame and warm spices", 20, y + 6);
-      y = addText("• Tamales Colorados: Masa wrapped in banana leaves", 20, y + 6);
-      y = addText("• Jocón de Hongos: Green tomatillo-cilantro stew", 20, y + 6);
+      // Itinerary
+      addHeading("8-Day Itinerary", 16);
+      addBody("Saturday, June 27: Arrival at Casa San Juan. Private transfer from La Aurora Airport (45 min). Light vegetarian dinner and opening circle in the garden.");
+      addBody("Sunday, June 28: Morning yoga & breakfast. Walking tour of San Juan del Obispo—home to the 17th-century palace of Francisco Marroquín, first bishop to the Americas. Lunch at La Casa de Marc. Free afternoon for journaling or rest.");
+      addBody("Monday, June 29: Antigua walking tour with renowned guide Elizabeth Bell. Explore cobblestone streets, colonial ruins, and the Santa Catalina Arch. Lunch at Santo Domingo Hotel, built on 16th-century Dominican monastery ruins.");
+      addBody("Tuesday, June 30: Full-day visit to Mayan villages (San Juan La Laguna, San Antonio Palopó). Witness backstrap loom weaving, natural dyeing, and black pottery. Share lunch with local families.");
+      addBody("Wednesday, July 1: Antigua Artisan Market. Meet textile weavers, ceramicists, and chocolate makers. Lunch at Café Condesa. Evening Yoga Nidra for deep restoration.");
+      addBody("Thursday, July 2: Market visit in Antigua. Hands-on vegetarian cooking class at Casa San Juan with Jean & Ginger. Prepare pepián, tamales, and atole using ancestral methods.");
+      addBody("Friday, July 3: Day trip to Iximche Mayan Ruins—capital of the Kaqchikel Maya (1470–1524). Optional traditional fire ceremony. Lunch at Cabana Suiso with mountain views.");
+      addBody("Saturday, July 4: Morning yoga. Optional spa treatments. Farewell dinner at Mesón Panza Verde—a multi-course vegetarian feast in a historic Moorish mansion.");
+      addBody("Sunday, July 5: Final sunrise yoga, meditation, and breakfast. Private airport transfers based on flight times.");
 
-      y = addText("PRACTICAL GUIDE", 20, y + 10, 14, 'bold');
-      y = addText("• Clothing: Yoga layers, walking sandals, light rain jacket", 20, y + 6);
-      y = addText("• Beauty: Minimal makeup, favorite earrings, reef-safe sunscreen", 20, y + 6);
-      y = addText("• Money: 1 CAD ≈ 5.8 GTQ. $20–40 CAD/day for extras.", 20, y + 6);
+      // Cuisine
+      addHeading("Ayurvedic Vegetarian Guatemalan Cuisine", 16);
+      addBody("All meals are 100% vegetarian, seasonal, and prepared with Ayurvedic balance in mind. Casa San Juan’s kitchen honors local tradition and digestive harmony.");
+      addBody("• Pepián de Calabaza: A rich, nutty stew made with roasted squash, tomatoes, sesame, pumpkin seeds, and warm spices.");
+      addBody("• Tamales Colorados: Masa filled with vegetables, wrapped in banana leaves, steamed until fragrant.");
+      addBody("• Jocón de Hongos: Green stew with tomatillo, cilantro, and mushrooms—light yet deeply satisfying.");
+      addBody("• Atol de Elote: Sweet corn drink, creamy and comforting—perfect for cool evenings.");
+      addBody("Vegan, gluten-free, and high-protein options available upon request.");
 
-      y = addText("HISTORY", 20, y + 10, 14, 'bold');
-      y = addText("• San Juan del Obispo: Home to 17th-century palace of Francisco Marroquín, first bishop to the Americas.", 20, y + 6);
-      y = addText("• Antigua: UNESCO World Heritage Site, colonial capital of Central America.", 20, y + 6);
-      y = addText("• Iximche: Capital of the Kaqchikel Maya (1470–1524).", 20, y + 6);
+      // Practical Guide
+      addHeading("Practical Guide: What to Bring", 16);
+      addBody("Clothing: Light yoga layers, comfortable walking sandals, sun hat, light rain jacket (brief afternoon showers), casual dress for farewell dinner.");
+      addBody("Beauty: Minimal makeup, favorite earrings or meaningful necklace, reef-safe sunscreen, insect repellent, lip balm, moisturizer.");
+      addBody("Essentials: Reusable water bottle, journal, pen, small backpack, power adapter (Type A/B), travel insurance documents.");
+      addBody("Money: Guatemalan Quetzal (GTQ). Current rate: 1 CAD ≈ 5.8 GTQ. Suggested daily spending: $20–40 CAD for souvenirs and tips.");
+
+      // History
+      addHeading("Sacred Places, Living History", 16);
+      addBody("San Juan del Obispo: Home to the 17th-century monastery and palace of Francisco Marroquín, the first bishop to the Americas. Casa San Juan is located in this historic village, just 15 minutes from Antigua.");
+      addBody("Antigua Guatemala: A UNESCO World Heritage Site, Antigua was the colonial capital of Central America. Its cobblestone streets and baroque churches reflect a layered history of Mayan, Spanish, and mestizo culture.");
+      addBody("Iximche: Capital of the Kaqchikel Maya (1470–1524), featuring plazas, temples, and ball courts. It remains a sacred site for Mayan ceremonies and a symbol of cultural resilience.");
+
+      // Contact
+      addHeading("Contact", 16);
+      addBody("For booking inquiries, please email Jean Amabile: jeanmamabile@gmail.com");
+      addBody("Learn more about Casa San Juan: https://www.casasanjuan.com.gt");
 
       doc.save('Journey-Together-Guatemala-2026.pdf');
     });
-
-    // Back to Top & other scripts (as before)
   </script>
 </body>
 </html>
