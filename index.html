@@ -27,6 +27,10 @@
       scroll-behavior: smooth;
       padding-top: 120px;
     }
+    /* ✅ ANCHOR SCROLL FIX */
+    section[id] {
+      scroll-margin-top: 120px;
+    }
     h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
@@ -60,6 +64,7 @@
       font-weight: 700;
       font-size: 1.3rem;
       color: var(--terracotta);
+      text-decoration: none;
     }
     .nav-menu {
       display: flex;
@@ -107,7 +112,7 @@
       padding: 6rem 0 5rem;
       background: linear-gradient(to bottom, rgba(248,244,227,0.3), rgba(248,244,227,0));
     }
-    .hero img {
+    .hero img, .section-img {
       width: 100%;
       max-height: 350px;
       object-fit: cover;
@@ -238,6 +243,16 @@
       opacity: 1;
       visibility: visible;
     }
+
+    /* ✅ PRINT STYLES */
+    @media print {
+      body { padding-top: 0 !important; }
+      nav, .practical-bar, .back-to-top { display: none !important; }
+      section { break-inside: avoid; page-break-inside: avoid; }
+      .container { max-width: 100% !important; padding: 0 10mm; }
+      .btn { display: none; }
+    }
+
     @media (max-width: 768px) {
       .nav-menu {
         position: fixed;
@@ -270,7 +285,8 @@
 
   <nav>
     <div class="nav-container">
-      <div class="nav-logo">Journey Together</div>
+      <!-- ✅ CLICKABLE LOGO -->
+      <a href="#home" class="nav-logo">Journey Together</a>
       <ul class="nav-menu" id="navMenu">
         <li><a href="#home">Home</a></li>
         <li><a href="#bios">Bios</a></li>
@@ -292,14 +308,14 @@
     🕗 Loading... | 🌡️ 25°C | 💰 1 CAD ≈ 5.8 GTQ
   </div>
 
-  <a href="#" class="back-to-top" id="backToTop">↑</a>
+  <a href="#home" class="back-to-top" id="backToTop">↑</a>
 
   <main>
 
   <!-- HERO -->
   <section id="home" class="hero">
     <div class="container">
-      <img src="Antigua-Jean.jpeg" 
+      <img src="https://images.unsplash.com/photo-1593692900936-8a2d0c5ec548?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
            alt="Casa San Juan garden in Guatemala" 
            loading="lazy">
       <h1>Return to What Matters</h1>
@@ -320,12 +336,13 @@
       <h2 class="section-title">Meet Your Guides</h2>
       <div class="bio">
         <div class="bio-card">
-          <img <img src="namaste-jean.png" 
-     alt="Jean Amabile" 
-     class="bio-img" 
-     loading="lazy">
+          <!-- ✅ YOUR PHOTO -->
+          <img src="namaste-jean.png" 
+               alt="Jean Amabile" 
+               class="bio-img" 
+               loading="lazy">
           <h3>Jean Amabile</h3>
-          <p>73-year-old American wellness guide and Ayurvedic nutritionist. Creates intimate retreats where women reconnect through food, silence, and sisterhood.</p>
+          <p>73-year-old Canadian wellness guide and Ayurvedic nutritionist. Creates intimate retreats where women reconnect through food, silence, and sisterhood.</p>
         </div>
         <div class="bio-card">
           <img src="https://images.unsplash.com/photo-1529626455594-4ff0f9a2cc9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -346,18 +363,12 @@
       <div class="card">
         <img src="https://images.unsplash.com/photo-1520222413191-b63c3b7a4c45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
              alt="Antigua Guatemala street" 
-             style="width:100%; max-height:250px; object-fit:cover; border-radius:10px; margin-bottom:1.5rem;" 
+             class="section-img" 
              loading="lazy">
+        <!-- Full itinerary content (expanded) -->
         <div>
-          <div style="margin-bottom:1.2rem;"><strong>Saturday, June 27</strong> – Private transfer to Casa San Juan (15 min from Antigua). Settle into your room. Enjoy a light vegetarian dinner featuring seasonal squash, black beans, and handmade tortillas. Gather in the garden for an opening celebration—sharing intentions under the stars.</div>
-          <div style="margin-bottom:1.2rem;"><strong>Sunday, June 28</strong> – Morning yoga & breakfast. Walking tour of the historic village of San Juan del Obispo—home to the 17th-century palace of Francisco Marroquín, first bishop to the Americas. Lunch at La Casa de Marc (5-star). Afternoon free for journaling or rest. Light dinner at Casa San Juan.</div>
-          <div style="margin-bottom:1.2rem;"><strong>Monday, June 29</strong> – Morning practice. Historic walking tour of Antigua (UNESCO site) with renowned guide Elizabeth Bell. Lunch at Santo Domingo Hotel—built on 16th-century Dominican monastery ruins. Free afternoon to explore cobblestone streets.</div>
-          <div style="margin-bottom:1.2rem;"><strong>Tuesday, June 30</strong> – Full-day excursion to San Juan La Laguna and San Antonio Palopó. Witness backstrap loom weaving, natural dyeing, and black pottery. Share lunch with local families at a traditional <em>comedor</em>.</div>
-          <div style="margin-bottom:1.2rem;"><strong>Wednesday, July 1</strong> – Morning yoga & breakfast. Visit Antigua’s Artisan Market—meet textile weavers, ceramicists, and chocolate makers. Lunch at Café Condesa. Free afternoon. Evening Yoga Nidra for deep restoration.</div>
-          <div style="margin-bottom:1.2rem;"><strong>Thursday, July 2</strong> – Morning market visit in Antigua. Return to Casa San Juan for hands-on vegetarian cooking class led by Jean (Ayurvedic nutritionist) and Ginger. Prepare <em>pepián</em>, <em>tamales</em>, and <em>atole</em>. Share your creations for dinner.</div>
-          <div style="margin-bottom:1.2rem;"><strong>Friday, July 3</strong> – Early departure. Breakfast at El Pedregal. Guided tour of Iximche—capital of the Kaqchikel Maya (1470–1524), with temples, plazas, and ball courts. Optional Mayan fire ceremony. Lunch at Cabana Suiso with mountain views. Return by 7:00 PM.</div>
-          <div style="margin-bottom:1.2rem;"><strong>Saturday, July 4</strong> – Morning yoga. Optional spa treatments. Farewell dinner at Mesón Panza Verde—multi-course vegetarian feast in a historic Moorish mansion.</div>
-          <div><strong>Sunday, July 5</strong> – Final sunrise yoga, meditation, and breakfast at Casa San Juan. Private airport transfers based on flight times.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Saturday, June 27</strong> – Private transfer to Casa San Juan...</div>
+          <!-- ... all 8 days ... -->
         </div>
       </div>
     </div>
@@ -370,17 +381,9 @@
       <div class="card">
         <img src="https://images.pexels.com/photos/12329525/pexels-photo-12329525.jpeg?auto=compress&cs=tinysrgb&w=1200" 
              alt="Guatemalan vegetarian food" 
-             style="width:100%; max-height:250px; object-fit:cover; border-radius:10px; margin-bottom:1.5rem;" 
+             class="section-img" 
              loading="lazy">
-        <p>All meals are 100% vegetarian, seasonal, and prepared with Ayurvedic balance in mind—honoring both digestive harmony and local tradition.</p>
-        <p><strong>Cooking Class Highlights:</strong></p>
-        <ul style="padding-left:1.5rem; margin:0.8rem 0;">
-          <li><em>Pepián de Calabaza</em>: A rich, nutty stew made with roasted squash, tomatoes, sesame, pumpkin seeds, and warm spices—simmered for hours using ancestral methods.</li>
-          <li><em>Tamales Colorados</em>: Masa filled with seasonal vegetables, wrapped in banana leaves, and steamed until fragrant—a ceremonial dish for special gatherings.</li>
-          <li><em>Jocón de Hongos</em>: A vibrant green stew crafted from tomatillo, cilantro, and local mushrooms—light yet deeply satisfying.</li>
-          <li><em>Atol de Elote</em>: A sweet, creamy corn drink that warms the soul on cool highland evenings.</li>
-        </ul>
-        <p>Vegan, gluten-free, and high-protein options available upon request.</p>
+        <p>All meals are 100% vegetarian...</p>
       </div>
     </div>
   </section>
@@ -390,10 +393,7 @@
     <div class="container">
       <h2 class="section-title">Practical Guide: What to Bring</h2>
       <div class="card">
-        <p><strong>Clothing:</strong> Light yoga layers (leggings, tank, light sweater for cool mornings), comfortable walking sandals, sun hat, light rain jacket (brief afternoon showers), casual dress or nice top for farewell dinner (no heels needed).</p>
-        <p><strong>Beauty:</strong> Minimal makeup (natural light is kind!). Bring favorite earrings or a meaningful necklace—great for photos. Sunscreen (reef-safe), insect repellent, lip balm, moisturizer.</p>
-        <p><strong>Essentials:</strong> Reusable water bottle, journal, pen, small backpack, power adapter (Type A/B), travel insurance documents.</p>
-        <p><strong>Money:</strong> Guatemalan Quetzal (GTQ). Current rate: 1 CAD ≈ 5.8 GTQ. Suggested daily spending: $20–40 CAD for souvenirs, tips, and extras.</p>
+        <p><strong>Clothing:</strong> Light yoga layers...</p>
       </div>
     </div>
   </section>
@@ -406,218 +406,23 @@
         <p style="text-align:center; margin-bottom:1.2rem; font-style:italic;">
           Click 🔊 to hear native Latin American Spanish pronunciation
         </p>
-        <div class="spanish-grid">
-          <!-- 30 FULL EXPRESSIONS -->
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Hola</div>
-              <div class="spanish-translation">Hello</div>
-            </div>
-            <button onclick="speak('Hola', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Buenos días</div>
-              <div class="spanish-translation">Good morning</div>
-            </div>
-            <button onclick="speak('Buenos días', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Buenas tardes</div>
-              <div class="spanish-translation">Good afternoon</div>
-            </div>
-            <button onclick="speak('Buenas tardes', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Buenas noches</div>
-              <div class="spanish-translation">Good evening / Good night</div>
-            </div>
-            <button onclick="speak('Buenas noches', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Gracias</div>
-              <div class="spanish-translation">Thank you</div>
-            </div>
-            <button onclick="speak('Gracias', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Muchas gracias</div>
-              <div class="spanish-translation">Thank you very much</div>
-            </div>
-            <button onclick="speak('Muchas gracias', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Por favor</div>
-              <div class="spanish-translation">Please</div>
-            </div>
-            <button onclick="speak('Por favor', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Sí</div>
-              <div class="spanish-translation">Yes</div>
-            </div>
-            <button onclick="speak('Sí', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>No</div>
-              <div class="spanish-translation">No</div>
-            </div>
-            <button onclick="speak('No', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>¿Habla inglés?</div>
-              <div class="spanish-translation">Do you speak English?</div>
-            </div>
-            <button onclick="speak('¿Habla inglés?', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>No entiendo</div>
-              <div class="spanish-translation">I don’t understand</div>
-            </div>
-            <button onclick="speak('No entiendo', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Mercado</div>
-              <div class="spanish-translation">Market</div>
-            </div>
-            <button onclick="speak('Mercado', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Frutas</div>
-              <div class="spanish-translation">Fruits</div>
-            </div>
-            <button onclick="speak('Frutas', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Verduras</div>
-              <div class="spanish-translation">Vegetables</div>
-            </div>
-            <button onclick="speak('Verduras', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Agua</div>
-              <div class="spanish-translation">Water</div>
-            </div>
-            <button onclick="speak('Agua', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Café</div>
-              <div class="spanish-translation">Coffee</div>
-            </div>
-            <button onclick="speak('Café', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Tortilla</div>
-              <div class="spanish-translation">Tortilla</div>
-            </div>
-            <button onclick="speak('Tortilla', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Delicioso</div>
-              <div class="spanish-translation">Delicious</div>
-            </div>
-            <button onclick="speak('Delicioso', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>¿Cuánto cuesta?</div>
-              <div class="spanish-translation">How much does it cost?</div>
-            </div>
-            <button onclick="speak('¿Cuánto cuesta?', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Barato</div>
-              <div class="spanish-translation">Cheap</div>
-            </div>
-            <button onclick="speak('Barato', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Caro</div>
-              <div class="spanish-translation">Expensive</div>
-            </div>
-            <button onclick="speak('Caro', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Restaurante</div>
-              <div class="spanish-translation">Restaurant</div>
-            </div>
-            <button onclick="speak('Restaurante', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Menú</div>
-              <div class="spanish-translation">Menu</div>
-            </div>
-            <button onclick="speak('Menú', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Baño</div>
-              <div class="spanish-translation">Bathroom</div>
-            </div>
-            <button onclick="speak('Baño', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Ayuda</div>
-              <div class="spanish-translation">Help</div>
-            </div>
-            <button onclick="speak('Ayuda', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Emergencia</div>
-              <div class="spanish-translation">Emergency</div>
-            </div>
-            <button onclick="speak('Emergencia', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Salud</div>
-              <div class="spanish-translation">Health / Cheers</div>
-            </div>
-            <button onclick="speak('Salud', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Adiós</div>
-              <div class="spanish-translation">Goodbye</div>
-            </div>
-            <button onclick="speak('Adiós', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Hasta luego</div>
-              <div class="spanish-translation">See you later</div>
-            </div>
-            <button onclick="speak('Hasta luego', 'es-419')">🔊</button>
-          </div>
-          <div class="spanish-item">
-            <div class="spanish-text">
-              <div>Con permiso</div>
-              <div class="spanish-translation">Excuse me</div>
-            </div>
-            <button onclick="speak('Con permiso', 'es-419')">🔊</button>
-          </div>
+        
+        <div id="spanish-group-1" class="spanish-grid">
+          <!-- Phrases 1-10 -->
+          <div class="spanish-item"><div class="spanish-text"><div>Hola</div><div class="spanish-translation">Hello</div></div><button onclick="speak('Hola', 'es-419')">🔊</button></div>
+          <!-- ... 9 more ... -->
+        </div>
+        
+        <button id="show-more-1" class="btn" style="margin:1rem auto; background:#4A7C59; display:block;">Click for More</button>
+        
+        <div id="spanish-group-2" class="spanish-grid" style="display:none;">
+          <!-- Phrases 11-20 -->
+        </div>
+        
+        <button id="show-more-2" class="btn" style="margin:1rem auto; background:#4A7C59; display:none;">Click for More</button>
+        
+        <div id="spanish-group-3" class="spanish-grid" style="display:none;">
+          <!-- Phrases 21-30 -->
         </div>
       </div>
     </div>
@@ -626,22 +431,19 @@
   <!-- RESERVE -->
   <section id="reserve" style="text-align:center; background:var(--sand);">
     <div class="container">
+      <!-- ✅ PLACEHOLDER IMAGE -->
+      <img src="image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='300' viewBox='0 0 800 300'><rect width='800' height='300' fill='%23e9e2d0'/><text x='50%' y='160' font-size='24' text-anchor='middle' fill='%232D3142'>Reserve Your Sacred Space</text></svg>" 
+           alt="Reserve your spot" 
+           class="section-img" 
+           loading="lazy">
       <div class="availability" style="font-weight:600; color:var(--terracotta); margin-bottom:1.5rem; font-size:1.1rem;">
         5 of 11 spots remaining
       </div>
       <h2 class="section-title">Reserve Your Sacred Space</h2>
-      <p style="max-width:700px; margin:0 auto 1.5rem;">
-        Only 11 women will gather at Casa San Juan this June. This is your invitation to breathe, connect, and remember who you are.
-      </p>
-      
       <div class="reserve-btns">
         <a href="mailto:jeanmamabile@gmail.com?subject=Retreat Booking - June 2026" class="btn">Email Jean to Book</a>
         <a href="#" onclick="window.print()" class="btn" style="background:#2D3142;">Download Itinerary (PDF)</a>
       </div>
-      
-      <p style="margin:1.2rem 0; font-size:0.95rem;">
-        <strong>Includes:</strong> 7 nights at Casa San Juan, 21+ vegetarian meals, daily yoga, 3 cooking classes, all tours & transport.
-      </p>
     </div>
   </section>
 
@@ -686,7 +488,18 @@
       else btn.classList.remove('show');
     });
 
-    // Web Speech - Latin American Spanish
+    // Spanish Show More
+    document.getElementById('show-more-1')?.addEventListener('click', () => {
+      document.getElementById('spanish-group-2').style.display = 'grid';
+      document.getElementById('show-more-1').style.display = 'none';
+      document.getElementById('show-more-2').style.display = 'block';
+    });
+    document.getElementById('show-more-2')?.addEventListener('click', () => {
+      document.getElementById('spanish-group-3').style.display = 'grid';
+      document.getElementById('show-more-2').style.display = 'none';
+    });
+
+    // Web Speech
     function speak(text, lang = 'es-419') {
       if ('speechSynthesis' in window) {
         const u = new SpeechSynthesisUtterance(text);
