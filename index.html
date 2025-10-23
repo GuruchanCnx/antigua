@@ -27,6 +27,9 @@
       scroll-behavior: smooth;
       padding-top: 120px;
     }
+    section[id] {
+      scroll-margin-top: 120px;
+    }
     h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
@@ -60,6 +63,7 @@
       font-weight: 700;
       font-size: 1.3rem;
       color: var(--terracotta);
+      text-decoration: none;
     }
     .nav-menu {
       display: flex;
@@ -107,7 +111,7 @@
       padding: 6rem 0 5rem;
       background: linear-gradient(to bottom, rgba(248,244,227,0.3), rgba(248,244,227,0));
     }
-    .hero img {
+    .hero img, .section-img {
       width: 100%;
       max-height: 350px;
       object-fit: cover;
@@ -238,6 +242,16 @@
       opacity: 1;
       visibility: visible;
     }
+
+    /* PRINT STYLES */
+    @media print {
+      body { padding-top: 0 !important; }
+      nav, .practical-bar, .back-to-top { display: none !important; }
+      section { break-inside: avoid; page-break-inside: avoid; }
+      .container { max-width: 100% !important; padding: 0 10mm; }
+      .btn { display: none; }
+    }
+
     @media (max-width: 768px) {
       .nav-menu {
         position: fixed;
@@ -270,7 +284,7 @@
 
   <nav>
     <div class="nav-container">
-      <div class="nav-logo">Journey Together</div>
+      <a href="#home" class="nav-logo">Journey Together</a>
       <ul class="nav-menu" id="navMenu">
         <li><a href="#home">Home</a></li>
         <li><a href="#bios">Bios</a></li>
@@ -292,7 +306,7 @@
     🕗 Loading... | 🌡️ 25°C | 💰 1 CAD ≈ 5.8 GTQ
   </div>
 
-  <a href="#" class="back-to-top" id="backToTop">↑</a>
+  <a href="#home" class="back-to-top" id="backToTop">↑</a>
 
   <main>
 
@@ -320,7 +334,7 @@
       <h2 class="section-title">Meet Your Guides</h2>
       <div class="bio">
         <div class="bio-card">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+          <img src="namaste-jean.png" 
                alt="Jean Amabile" 
                class="bio-img" 
                loading="lazy">
@@ -333,7 +347,7 @@
                class="bio-img" 
                loading="lazy">
           <h3>Ginger Hooven (Kamalesh)</h3>
-          <p>Host and yoga teacher at Casa San Juan. Offers online yoga classes in English and Spanish. <a href="https://www.casasanjuan.com.gt" target="_blank" style="color:var(--terracotta);">Learn more about Casa San Juan</a></p>
+          <p>Host and yoga teacher at Casa San Juan. Offers online yoga classes in English and Spanish. <a href="https://www.casasanjuan.com.gt" target="_blank" style="color:var(--terracotta);">Visit Casa San Juan</a></p>
         </div>
       </div>
     </div>
@@ -346,17 +360,17 @@
       <div class="card">
         <img src="https://images.unsplash.com/photo-1520222413191-b63c3b7a4c45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
              alt="Antigua Guatemala street" 
-             style="width:100%; max-height:250px; object-fit:cover; border-radius:10px; margin-bottom:1.5rem;" 
+             class="section-img" 
              loading="lazy">
         <div>
-          <div style="margin-bottom:1.2rem;"><strong>Saturday, June 27</strong> – Private transfer to Casa San Juan (15 min from Antigua). Settle into your room. Enjoy a light vegetarian dinner featuring seasonal squash, black beans, and handmade tortillas. Gather in the garden for an opening celebration—sharing intentions under the stars.</div>
-          <div style="margin-bottom:1.2rem;"><strong>Sunday, June 28</strong> – Morning yoga & breakfast. Walking tour of the historic village of San Juan del Obispo—home to the 17th-century palace of Francisco Marroquín, first bishop to the Americas. Lunch at La Casa de Marc (5-star). Afternoon free for journaling or rest. Light dinner at Casa San Juan.</div>
-          <div style="margin-bottom:1.2rem;"><strong>Monday, June 29</strong> – Morning practice. Historic walking tour of Antigua (UNESCO site) with renowned guide Elizabeth Bell. Lunch at Santo Domingo Hotel—built on 16th-century Dominican monastery ruins. Free afternoon to explore cobblestone streets.</div>
-          <div style="margin-bottom:1.2rem;"><strong>Tuesday, June 30</strong> – Full-day excursion to San Juan La Laguna and San Antonio Palopó. Witness backstrap loom weaving, natural dyeing, and black pottery. Share lunch with local families at a traditional <em>comedor</em>.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Saturday, June 27</strong> – Private transfer from La Aurora Airport to Casa San Juan (15 minutes from Antigua). Settle into your room. Enjoy a light vegetarian dinner featuring seasonal squash, black beans, and handmade tortillas. Gather in the garden for an opening celebration—sharing intentions under the stars.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Sunday, June 28</strong> – Morning yoga & meditation. Breakfast with local coffee and tropical fruits. Walking tour of San Juan del Obispo—home to the 17th-century palace of Francisco Marroquín, first bishop to the Americas. Lunch at La Casa de Marc (5-star). Afternoon free for journaling, painting, or rest. Light dinner at Casa San Juan.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Monday, June 29</strong> – Morning yoga & breakfast. Historic walking tour of Antigua (UNESCO site) with renowned guide Elizabeth Bell. Explore cobblestone streets, colonial ruins, and the Santa Catalina Arch. Lunch at Santo Domingo Hotel—built on 16th-century Dominican monastery ruins. Free afternoon to explore galleries or relax in a courtyard café.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Tuesday, June 30</strong> – Full-day excursion to Mayan villages around Lake Atitlán (San Juan La Laguna, San Antonio Palopó). Witness backstrap loom weaving, natural dyeing, and black pottery. Share lunch with local families at a traditional <em>comedor</em>.</div>
           <div style="margin-bottom:1.2rem;"><strong>Wednesday, July 1</strong> – Morning yoga & breakfast. Visit Antigua’s Artisan Market—meet textile weavers, ceramicists, and chocolate makers. Lunch at Café Condesa. Free afternoon. Evening Yoga Nidra for deep restoration.</div>
-          <div style="margin-bottom:1.2rem;"><strong>Thursday, July 2</strong> – Morning market visit in Antigua. Return to Casa San Juan for hands-on vegetarian cooking class led by Jean (Ayurvedic nutritionist) and Ginger. Prepare <em>pepián</em>, <em>tamales</em>, and <em>atole</em>. Share your creations for dinner.</div>
-          <div style="margin-bottom:1.2rem;"><strong>Friday, July 3</strong> – Early departure. Breakfast at El Pedregal. Guided tour of Iximche—capital of the Kaqchikel Maya (1470–1524), with temples, plazas, and ball courts. Optional Mayan fire ceremony. Lunch at Cabana Suiso with mountain views. Return by 7:00 PM.</div>
-          <div style="margin-bottom:1.2rem;"><strong>Saturday, July 4</strong> – Morning yoga. Optional spa treatments. Farewell dinner at Mesón Panza Verde—multi-course vegetarian feast in a historic Moorish mansion.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Thursday, July 2</strong> – Morning market visit in Antigua to select fresh produce. Return to Casa San Juan for hands-on vegetarian cooking class led by Jean (Ayurvedic nutritionist) and Ginger. Prepare <em>pepián</em>, <em>tamales</em>, and <em>atole</em>. Share your creations for dinner.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Friday, July 3</strong> – Early departure. Breakfast stop at El Pedregal. Guided tour of Iximche—capital of the Kaqchikel Maya (1470–1524), with temples, plazas, and ball courts. Optional traditional Mayan fire ceremony. Lunch at Cabana Suiso with panoramic mountain views. Return by 7:00 PM.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Saturday, July 4</strong> – Morning yoga. Optional spa treatments (massage, herbal steam). Farewell dinner at Mesón Panza Verde—multi-course vegetarian feast in a historic Moorish mansion.</div>
           <div><strong>Sunday, July 5</strong> – Final sunrise yoga, meditation, and breakfast at Casa San Juan. Private airport transfers based on flight times.</div>
         </div>
       </div>
@@ -370,7 +384,7 @@
       <div class="card">
         <img src="https://images.pexels.com/photos/12329525/pexels-photo-12329525.jpeg?auto=compress&cs=tinysrgb&w=1200" 
              alt="Guatemalan vegetarian food" 
-             style="width:100%; max-height:250px; object-fit:cover; border-radius:10px; margin-bottom:1.5rem;" 
+             class="section-img" 
              loading="lazy">
         <p>All meals are 100% vegetarian, seasonal, and prepared with Ayurvedic balance in mind—honoring both digestive harmony and local tradition.</p>
         <p><strong>Cooking Class Highlights:</strong></p>
@@ -407,7 +421,6 @@
           Click 🔊 to hear native Latin American Spanish pronunciation
         </p>
         <div class="spanish-grid">
-          <!-- 30 FULL EXPRESSIONS -->
           <div class="spanish-item">
             <div class="spanish-text">
               <div>Hola</div>
@@ -626,6 +639,10 @@
   <!-- RESERVE -->
   <section id="reserve" style="text-align:center; background:var(--sand);">
     <div class="container">
+      <img src="image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='300' viewBox='0 0 800 300'><rect width='800' height='300' fill='%23e9e2d0'/><text x='50%' y='160' font-size='24' text-anchor='middle' fill='%232D3142'>Reserve Your Sacred Space</text></svg>" 
+           alt="Reserve your spot" 
+           class="section-img" 
+           loading="lazy">
       <div class="availability" style="font-weight:600; color:var(--terracotta); margin-bottom:1.5rem; font-size:1.1rem;">
         5 of 11 spots remaining
       </div>
@@ -686,7 +703,7 @@
       else btn.classList.remove('show');
     });
 
-    // Web Speech - Latin American Spanish
+    // Web Speech
     function speak(text, lang = 'es-419') {
       if ('speechSynthesis' in window) {
         const u = new SpeechSynthesisUtterance(text);
