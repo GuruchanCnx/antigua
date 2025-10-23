@@ -107,6 +107,13 @@
       padding: 6rem 0 5rem;
       background: linear-gradient(to bottom, rgba(248,244,227,0.3), rgba(248,244,227,0));
     }
+    .hero img {
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 1.5rem auto;
+    }
     .hero h1 {
       font-size: 2.4rem;
       margin-bottom: 1.2rem;
@@ -118,28 +125,12 @@
       font-size: 2rem;
       color: var(--indigo);
     }
-    .collapse-section {
+    .card {
       background: white;
       border-radius: 14px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.06);
       margin-bottom: 2rem;
-    }
-    .collapse-header {
-      padding: 1.5rem 2rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      color: var(--indigo);
-      font-size: 1.2rem;
-    }
-    .collapse-content {
-      padding: 0 2rem 2rem;
-      display: none;
-    }
-    .collapse-content.show {
-      display: block;
+      padding: 2rem;
     }
     .bio {
       display: flex;
@@ -162,8 +153,9 @@
       width: 130px;
       height: 130px;
       border-radius: 50%;
-      background: var(--sand);
+      object-fit: cover;
       margin: 0 auto 1.2rem;
+      background: var(--sand);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -304,8 +296,12 @@
 
   <main>
 
+  <!-- HERO -->
   <section id="home" class="hero">
     <div class="container">
+      <img src="https://images.unsplash.com/photo-1593692900936-8a2d0c5ec548?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+           alt="Casa San Juan garden in Guatemala" 
+           loading="lazy">
       <h1>Return to What Matters</h1>
       <p>
         An 8-day Ayurvedic & cultural retreat for women in Guatemala.<br>
@@ -318,17 +314,24 @@
     </div>
   </section>
 
+  <!-- BIOS -->
   <section id="bios">
     <div class="container">
       <h2 class="section-title">Meet Your Guides</h2>
       <div class="bio">
         <div class="bio-card">
-          <div class="bio-img">J</div>
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+               alt="Jean Amabile" 
+               class="bio-img" 
+               loading="lazy">
           <h3>Jean Amabile</h3>
           <p>73-year-old Canadian wellness guide and Ayurvedic nutritionist. Creates intimate retreats where women reconnect through food, silence, and sisterhood.</p>
         </div>
         <div class="bio-card">
-          <div class="bio-img">G</div>
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0f9a2cc9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+               alt="Ginger Hooven" 
+               class="bio-img" 
+               loading="lazy">
           <h3>Ginger Hooven (Kamalesh)</h3>
           <p>Host and yoga teacher at Casa San Juan. Offers online yoga classes in English and Spanish. <a href="https://www.casasanjuan.com.gt" target="_blank" style="color:var(--terracotta);">Learn more about Casa San Juan</a></p>
         </div>
@@ -336,127 +339,291 @@
     </div>
   </section>
 
+  <!-- ITINERARY -->
   <section id="itinerary" style="background:var(--sand);">
     <div class="container">
-      <div class="collapse-section">
-        <div class="collapse-header" onclick="toggleSection('itinerary-content')">
-          <span>8-Day Itinerary: June 27 – July 5, 2026</span>
-          <span>▼</span>
-        </div>
-        <div class="collapse-content" id="itinerary-content">
-          <div style="padding:0 1rem;">
-            <div style="margin-bottom:1.4rem;"><strong>Sat, June 27</strong> – Arrival at Casa San Juan. Light vegetarian dinner. Opening circle.</div>
-            <div style="margin-bottom:1.4rem;"><strong>Sun, June 28</strong> – San Juan del Obispo village tour. Lunch at La Casa de Marc.</div>
-            <div style="margin-bottom:1.4rem;"><strong>Mon, June 29</strong> – Antigua walking tour with Elizabeth Bell. Lunch at Santo Domingo.</div>
-            <div style="margin-bottom:1.4rem;"><strong>Tue, June 30</strong> – Highland villages (San Juan La Laguna, San Antonio Palopó).</div>
-            <div style="margin-bottom:1.4rem;"><strong>Wed, July 1</strong> – Antigua Artisan Market. Yoga Nidra.</div>
-            <div style="margin-bottom:1.4rem;"><strong>Thu, July 2</strong> – Cooking class with Jean & Ginger at Casa San Juan.</div>
-            <div style="margin-bottom:1.4rem;"><strong>Fri, July 3</strong> – Iximche Mayan Ruins day trip. Optional fire ceremony.</div>
-            <div style="margin-bottom:1.4rem;"><strong>Sat, July 4</strong> – Spa. Farewell dinner at Mesón Panza Verde.</div>
-            <div><strong>Sun, July 5</strong> – Departure.</div>
-          </div>
+      <h2 class="section-title">8-Day Itinerary: June 27 – July 5, 2026</h2>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1520222413191-b63c3b7a4c45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+             alt="Antigua Guatemala street" 
+             style="width:100%; max-height:250px; object-fit:cover; border-radius:10px; margin-bottom:1.5rem;" 
+             loading="lazy">
+        <div>
+          <div style="margin-bottom:1.2rem;"><strong>Saturday, June 27</strong> – Private transfer to Casa San Juan (15 min from Antigua). Settle into your room. Enjoy a light vegetarian dinner featuring seasonal squash, black beans, and handmade tortillas. Gather in the garden for an opening celebration—sharing intentions under the stars.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Sunday, June 28</strong> – Morning yoga & breakfast. Walking tour of the historic village of San Juan del Obispo—home to the 17th-century palace of Francisco Marroquín, first bishop to the Americas. Lunch at La Casa de Marc (5-star). Afternoon free for journaling or rest. Light dinner at Casa San Juan.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Monday, June 29</strong> – Morning practice. Historic walking tour of Antigua (UNESCO site) with renowned guide Elizabeth Bell. Lunch at Santo Domingo Hotel—built on 16th-century Dominican monastery ruins. Free afternoon to explore cobblestone streets.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Tuesday, June 30</strong> – Full-day excursion to San Juan La Laguna and San Antonio Palopó. Witness backstrap loom weaving, natural dyeing, and black pottery. Share lunch with local families at a traditional <em>comedor</em>.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Wednesday, July 1</strong> – Morning yoga & breakfast. Visit Antigua’s Artisan Market—meet textile weavers, ceramicists, and chocolate makers. Lunch at Café Condesa. Free afternoon. Evening Yoga Nidra for deep restoration.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Thursday, July 2</strong> – Morning market visit in Antigua. Return to Casa San Juan for hands-on vegetarian cooking class led by Jean (Ayurvedic nutritionist) and Ginger. Prepare <em>pepián</em>, <em>tamales</em>, and <em>atole</em>. Share your creations for dinner.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Friday, July 3</strong> – Early departure. Breakfast at El Pedregal. Guided tour of Iximche—capital of the Kaqchikel Maya (1470–1524), with temples, plazas, and ball courts. Optional Mayan fire ceremony. Lunch at Cabana Suiso with mountain views. Return by 7:00 PM.</div>
+          <div style="margin-bottom:1.2rem;"><strong>Saturday, July 4</strong> – Morning yoga. Optional spa treatments. Farewell dinner at Mesón Panza Verde—multi-course vegetarian feast in a historic Moorish mansion.</div>
+          <div><strong>Sunday, July 5</strong> – Final sunrise yoga, meditation, and breakfast at Casa San Juan. Private airport transfers based on flight times.</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- CUISINE -->
   <section id="cuisine">
     <div class="container">
-      <div class="collapse-section">
-        <div class="collapse-header" onclick="toggleSection('cuisine-content')">
-          <span>Ayurvedic Vegetarian Guatemalan Cuisine</span>
-          <span>▼</span>
-        </div>
-        <div class="collapse-content" id="cuisine-content">
-          <div style="padding:0 1rem;">
-            <p>All meals are 100% vegetarian, seasonal, and prepared with Ayurvedic balance in mind.</p>
-            <p><strong>Cooking Class Highlights:</strong></p>
-            <ul style="padding-left:1.5rem; margin:0.8rem 0;">
-              <li><em>Pepián de Calabaza</em>: Nutty stew with squash, sesame, and warm spices</li>
-              <li><em>Tamales Colorados</em>: Masa wrapped in banana leaves</li>
-              <li><em>Jocón de Hongos</em>: Green tomatillo-cilantro stew</li>
-            </ul>
-            <p>Vegan, gluten-free, and high-protein options available.</p>
-          </div>
-        </div>
+      <h2 class="section-title">Ayurvedic Vegetarian Guatemalan Cuisine</h2>
+      <div class="card">
+        <img src="https://images.pexels.com/photos/12329525/pexels-photo-12329525.jpeg?auto=compress&cs=tinysrgb&w=1200" 
+             alt="Guatemalan vegetarian food" 
+             style="width:100%; max-height:250px; object-fit:cover; border-radius:10px; margin-bottom:1.5rem;" 
+             loading="lazy">
+        <p>All meals are 100% vegetarian, seasonal, and prepared with Ayurvedic balance in mind—honoring both digestive harmony and local tradition.</p>
+        <p><strong>Cooking Class Highlights:</strong></p>
+        <ul style="padding-left:1.5rem; margin:0.8rem 0;">
+          <li><em>Pepián de Calabaza</em>: A rich, nutty stew made with roasted squash, tomatoes, sesame, pumpkin seeds, and warm spices—simmered for hours using ancestral methods.</li>
+          <li><em>Tamales Colorados</em>: Masa filled with seasonal vegetables, wrapped in banana leaves, and steamed until fragrant—a ceremonial dish for special gatherings.</li>
+          <li><em>Jocón de Hongos</em>: A vibrant green stew crafted from tomatillo, cilantro, and local mushrooms—light yet deeply satisfying.</li>
+          <li><em>Atol de Elote</em>: A sweet, creamy corn drink that warms the soul on cool highland evenings.</li>
+        </ul>
+        <p>Vegan, gluten-free, and high-protein options available upon request.</p>
       </div>
     </div>
   </section>
 
+  <!-- PRACTICAL -->
   <section id="practical">
     <div class="container">
-      <div class="collapse-section">
-        <div class="collapse-header" onclick="toggleSection('practical-content')">
-          <span>Practical Guide: What to Bring</span>
-          <span>▼</span>
-        </div>
-        <div class="collapse-content" id="practical-content">
-          <div style="padding:0 1rem;">
-            <p><strong>Clothing:</strong> Yoga layers, walking sandals, light rain jacket, casual dress for farewell dinner.</p>
-            <p><strong>Beauty:</strong> Minimal makeup, favorite earrings, reef-safe sunscreen, lip balm.</p>
-            <p><strong>Essentials:</strong> Reusable water bottle, journal, power adapter (Type A/B), travel insurance.</p>
-            <p><strong>Money:</strong> 1 CAD ≈ 5.8 GTQ. $20–40 CAD/day for souvenirs/tips.</p>
-          </div>
-        </div>
+      <h2 class="section-title">Practical Guide: What to Bring</h2>
+      <div class="card">
+        <p><strong>Clothing:</strong> Light yoga layers (leggings, tank, light sweater for cool mornings), comfortable walking sandals, sun hat, light rain jacket (brief afternoon showers), casual dress or nice top for farewell dinner (no heels needed).</p>
+        <p><strong>Beauty:</strong> Minimal makeup (natural light is kind!). Bring favorite earrings or a meaningful necklace—great for photos. Sunscreen (reef-safe), insect repellent, lip balm, moisturizer.</p>
+        <p><strong>Essentials:</strong> Reusable water bottle, journal, pen, small backpack, power adapter (Type A/B), travel insurance documents.</p>
+        <p><strong>Money:</strong> Guatemalan Quetzal (GTQ). Current rate: 1 CAD ≈ 5.8 GTQ. Suggested daily spending: $20–40 CAD for souvenirs, tips, and extras.</p>
       </div>
     </div>
   </section>
 
+  <!-- SPANISH -->
   <section id="spanish">
     <div class="container">
-      <div class="collapse-section">
-        <div class="collapse-header" onclick="toggleSection('spanish-content')">
-          <span>30 Essential Spanish Phrases</span>
-          <span>▼</span>
-        </div>
-        <div class="collapse-content" id="spanish-content">
-          <div class="card-content">
-            <p style="text-align:center; margin-bottom:1.2rem; font-style:italic;">
-              Click 🔊 to hear native Latin American Spanish pronunciation
-            </p>
-            <div class="spanish-grid">
-              <div class="spanish-item">
-                <div class="spanish-text">
-                  <div>Hola</div>
-                  <div class="spanish-translation">Hello</div>
-                </div>
-                <button onclick="speak('Hola', 'es-419')">🔊</button>
-              </div>
-              <div class="spanish-item">
-                <div class="spanish-text">
-                  <div>Gracias</div>
-                  <div class="spanish-translation">Thank you</div>
-                </div>
-                <button onclick="speak('Gracias', 'es-419')">🔊</button>
-              </div>
-              <div class="spanish-item">
-                <div class="spanish-text">
-                  <div>¿Habla inglés?</div>
-                  <div class="spanish-translation">Do you speak English?</div>
-                </div>
-                <button onclick="speak('¿Habla inglés?', 'es-419')">🔊</button>
-              </div>
-              <div class="spanish-item">
-                <div class="spanish-text">
-                  <div>Mercado</div>
-                  <div class="spanish-translation">Market</div>
-                </div>
-                <button onclick="speak('Mercado', 'es-419')">🔊</button>
-              </div>
-              <div class="spanish-item">
-                <div class="spanish-text">
-                  <div>Delicioso</div>
-                  <div class="spanish-translation">Delicious</div>
-                </div>
-                <button onclick="speak('Delicioso', 'es-419')">🔊</button>
-              </div>
+      <h2 class="section-title">30 Essential Spanish Phrases</h2>
+      <div class="card">
+        <p style="text-align:center; margin-bottom:1.2rem; font-style:italic;">
+          Click 🔊 to hear native Latin American Spanish pronunciation
+        </p>
+        <div class="spanish-grid">
+          <!-- 30 FULL EXPRESSIONS -->
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Hola</div>
+              <div class="spanish-translation">Hello</div>
             </div>
+            <button onclick="speak('Hola', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Buenos días</div>
+              <div class="spanish-translation">Good morning</div>
+            </div>
+            <button onclick="speak('Buenos días', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Buenas tardes</div>
+              <div class="spanish-translation">Good afternoon</div>
+            </div>
+            <button onclick="speak('Buenas tardes', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Buenas noches</div>
+              <div class="spanish-translation">Good evening / Good night</div>
+            </div>
+            <button onclick="speak('Buenas noches', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Gracias</div>
+              <div class="spanish-translation">Thank you</div>
+            </div>
+            <button onclick="speak('Gracias', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Muchas gracias</div>
+              <div class="spanish-translation">Thank you very much</div>
+            </div>
+            <button onclick="speak('Muchas gracias', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Por favor</div>
+              <div class="spanish-translation">Please</div>
+            </div>
+            <button onclick="speak('Por favor', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Sí</div>
+              <div class="spanish-translation">Yes</div>
+            </div>
+            <button onclick="speak('Sí', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>No</div>
+              <div class="spanish-translation">No</div>
+            </div>
+            <button onclick="speak('No', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>¿Habla inglés?</div>
+              <div class="spanish-translation">Do you speak English?</div>
+            </div>
+            <button onclick="speak('¿Habla inglés?', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>No entiendo</div>
+              <div class="spanish-translation">I don’t understand</div>
+            </div>
+            <button onclick="speak('No entiendo', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Mercado</div>
+              <div class="spanish-translation">Market</div>
+            </div>
+            <button onclick="speak('Mercado', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Frutas</div>
+              <div class="spanish-translation">Fruits</div>
+            </div>
+            <button onclick="speak('Frutas', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Verduras</div>
+              <div class="spanish-translation">Vegetables</div>
+            </div>
+            <button onclick="speak('Verduras', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Agua</div>
+              <div class="spanish-translation">Water</div>
+            </div>
+            <button onclick="speak('Agua', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Café</div>
+              <div class="spanish-translation">Coffee</div>
+            </div>
+            <button onclick="speak('Café', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Tortilla</div>
+              <div class="spanish-translation">Tortilla</div>
+            </div>
+            <button onclick="speak('Tortilla', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Delicioso</div>
+              <div class="spanish-translation">Delicious</div>
+            </div>
+            <button onclick="speak('Delicioso', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>¿Cuánto cuesta?</div>
+              <div class="spanish-translation">How much does it cost?</div>
+            </div>
+            <button onclick="speak('¿Cuánto cuesta?', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Barato</div>
+              <div class="spanish-translation">Cheap</div>
+            </div>
+            <button onclick="speak('Barato', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Caro</div>
+              <div class="spanish-translation">Expensive</div>
+            </div>
+            <button onclick="speak('Caro', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Restaurante</div>
+              <div class="spanish-translation">Restaurant</div>
+            </div>
+            <button onclick="speak('Restaurante', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Menú</div>
+              <div class="spanish-translation">Menu</div>
+            </div>
+            <button onclick="speak('Menú', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Baño</div>
+              <div class="spanish-translation">Bathroom</div>
+            </div>
+            <button onclick="speak('Baño', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Ayuda</div>
+              <div class="spanish-translation">Help</div>
+            </div>
+            <button onclick="speak('Ayuda', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Emergencia</div>
+              <div class="spanish-translation">Emergency</div>
+            </div>
+            <button onclick="speak('Emergencia', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Salud</div>
+              <div class="spanish-translation">Health / Cheers</div>
+            </div>
+            <button onclick="speak('Salud', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Adiós</div>
+              <div class="spanish-translation">Goodbye</div>
+            </div>
+            <button onclick="speak('Adiós', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Hasta luego</div>
+              <div class="spanish-translation">See you later</div>
+            </div>
+            <button onclick="speak('Hasta luego', 'es-419')">🔊</button>
+          </div>
+          <div class="spanish-item">
+            <div class="spanish-text">
+              <div>Con permiso</div>
+              <div class="spanish-translation">Excuse me</div>
+            </div>
+            <button onclick="speak('Con permiso', 'es-419')">🔊</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- RESERVE -->
   <section id="reserve" style="text-align:center; background:var(--sand);">
     <div class="container">
       <div class="availability" style="font-weight:600; color:var(--terracotta); margin-bottom:1.5rem; font-size:1.1rem;">
@@ -469,7 +636,7 @@
       
       <div class="reserve-btns">
         <a href="mailto:jeanmamabile@gmail.com?subject=Retreat Booking - June 2026" class="btn">Email Jean to Book</a>
-        <a href="#" id="downloadPdf" class="btn" style="background:#2D3142;">Download Itinerary (PDF)</a>
+        <a href="#" onclick="window.print()" class="btn" style="background:#2D3142;">Download Itinerary (PDF)</a>
       </div>
       
       <p style="margin:1.2rem 0; font-size:0.95rem;">
@@ -487,7 +654,6 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
     // Mobile Menu
     document.getElementById('hamburger').addEventListener('click', () => {
@@ -520,12 +686,7 @@
       else btn.classList.remove('show');
     });
 
-    // Collapsible Sections
-    function toggleSection(id) {
-      document.getElementById(id).classList.toggle('show');
-    }
-
-    // Web Speech
+    // Web Speech - Latin American Spanish
     function speak(text, lang = 'es-419') {
       if ('speechSynthesis' in window) {
         const u = new SpeechSynthesisUtterance(text);
@@ -534,79 +695,6 @@
         speechSynthesis.speak(u);
       }
     }
-
-    // ✅ FULLY EXPANDED PDF GENERATOR
-    document.getElementById('downloadPdf').addEventListener('click', (e) => {
-      e.preventDefault();
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF('p', 'mm', 'a4');
-      let y = 20;
-
-      const addHeading = (text, size = 16) => {
-        doc.setFont('times', 'bold');
-        doc.setFontSize(size);
-        doc.text(text, 20, y);
-        y += 12;
-      };
-
-      const addBody = (text, size = 12) => {
-        doc.setFont('times', 'normal');
-        doc.setFontSize(size);
-        const lines = doc.splitTextToSize(text, 170);
-        doc.text(lines, 20, y);
-        y += lines.length * 7 + 4;
-      };
-
-      // Title
-      addHeading("Journey Together – Guatemala Retreat", 20);
-      addBody("June 27 – July 5, 2026 • Casa San Juan, San Juan del Obispo");
-
-      // Bios
-      addHeading("Meet Your Guides", 16);
-      addBody("Jean Amabile (73): Canadian wellness guide and Ayurvedic nutritionist. Jean creates intimate retreats where women reconnect through food, silence, and sisterhood.");
-      addBody("Ginger Hooven (Kamalesh): Host and yoga teacher at Casa San Juan. Offers online yoga classes in English and Spanish. Visit Casa San Juan’s YouTube channel to experience her gentle, intuitive teaching style.");
-
-      // Itinerary
-      addHeading("8-Day Itinerary", 16);
-      addBody("Saturday, June 27: Arrival at Casa San Juan. Private transfer from La Aurora Airport (45 min). Light vegetarian dinner and opening circle in the garden.");
-      addBody("Sunday, June 28: Morning yoga & breakfast. Walking tour of San Juan del Obispo—home to the 17th-century palace of Francisco Marroquín, first bishop to the Americas. Lunch at La Casa de Marc. Free afternoon for journaling or rest.");
-      addBody("Monday, June 29: Antigua walking tour with renowned guide Elizabeth Bell. Explore cobblestone streets, colonial ruins, and the Santa Catalina Arch. Lunch at Santo Domingo Hotel, built on 16th-century Dominican monastery ruins.");
-      addBody("Tuesday, June 30: Full-day visit to Mayan villages (San Juan La Laguna, San Antonio Palopó). Witness backstrap loom weaving, natural dyeing, and black pottery. Share lunch with local families.");
-      addBody("Wednesday, July 1: Antigua Artisan Market. Meet textile weavers, ceramicists, and chocolate makers. Lunch at Café Condesa. Evening Yoga Nidra for deep restoration.");
-      addBody("Thursday, July 2: Market visit in Antigua. Hands-on vegetarian cooking class at Casa San Juan with Jean & Ginger. Prepare pepián, tamales, and atole using ancestral methods.");
-      addBody("Friday, July 3: Day trip to Iximche Mayan Ruins—capital of the Kaqchikel Maya (1470–1524). Optional traditional fire ceremony. Lunch at Cabana Suiso with mountain views.");
-      addBody("Saturday, July 4: Morning yoga. Optional spa treatments. Farewell dinner at Mesón Panza Verde—a multi-course vegetarian feast in a historic Moorish mansion.");
-      addBody("Sunday, July 5: Final sunrise yoga, meditation, and breakfast. Private airport transfers based on flight times.");
-
-      // Cuisine
-      addHeading("Ayurvedic Vegetarian Guatemalan Cuisine", 16);
-      addBody("All meals are 100% vegetarian, seasonal, and prepared with Ayurvedic balance in mind. Casa San Juan’s kitchen honors local tradition and digestive harmony.");
-      addBody("• Pepián de Calabaza: A rich, nutty stew made with roasted squash, tomatoes, sesame, pumpkin seeds, and warm spices.");
-      addBody("• Tamales Colorados: Masa filled with vegetables, wrapped in banana leaves, steamed until fragrant.");
-      addBody("• Jocón de Hongos: Green stew with tomatillo, cilantro, and mushrooms—light yet deeply satisfying.");
-      addBody("• Atol de Elote: Sweet corn drink, creamy and comforting—perfect for cool evenings.");
-      addBody("Vegan, gluten-free, and high-protein options available upon request.");
-
-      // Practical Guide
-      addHeading("Practical Guide: What to Bring", 16);
-      addBody("Clothing: Light yoga layers, comfortable walking sandals, sun hat, light rain jacket (brief afternoon showers), casual dress for farewell dinner.");
-      addBody("Beauty: Minimal makeup, favorite earrings or meaningful necklace, reef-safe sunscreen, insect repellent, lip balm, moisturizer.");
-      addBody("Essentials: Reusable water bottle, journal, pen, small backpack, power adapter (Type A/B), travel insurance documents.");
-      addBody("Money: Guatemalan Quetzal (GTQ). Current rate: 1 CAD ≈ 5.8 GTQ. Suggested daily spending: $20–40 CAD for souvenirs and tips.");
-
-      // History
-      addHeading("Sacred Places, Living History", 16);
-      addBody("San Juan del Obispo: Home to the 17th-century monastery and palace of Francisco Marroquín, the first bishop to the Americas. Casa San Juan is located in this historic village, just 15 minutes from Antigua.");
-      addBody("Antigua Guatemala: A UNESCO World Heritage Site, Antigua was the colonial capital of Central America. Its cobblestone streets and baroque churches reflect a layered history of Mayan, Spanish, and mestizo culture.");
-      addBody("Iximche: Capital of the Kaqchikel Maya (1470–1524), featuring plazas, temples, and ball courts. It remains a sacred site for Mayan ceremonies and a symbol of cultural resilience.");
-
-      // Contact
-      addHeading("Contact", 16);
-      addBody("For booking inquiries, please email Jean Amabile: jeanmamabile@gmail.com");
-      addBody("Learn more about Casa San Juan: https://www.casasanjuan.com.gt");
-
-      doc.save('Journey-Together-Guatemala-2026.pdf');
-    });
   </script>
 </body>
 </html>
