@@ -5,15 +5,12 @@
   /* Ensure section titles are visible when anchored */
   section[id] {
     scroll-margin-top: 100px;
-  }
-  /* Raise titles visually */
-  .section-title {
-    margin-top: -50px !important;
-    padding-top: 70px !important;
-  }
-  /* ✅ Raise all section titles — Jean’s global fix */
+    /* ✅ FINAL: Raise all section titles — Jean’s fix */
 .section-title {
-  margin-top: -40px !important;
+  margin-top: -60px !important;
+  padding-top: 80px !important;
+  position: relative;
+  z-index: 10;
 }
 </style>
   <meta charset="UTF-8" />
