@@ -263,7 +263,6 @@
       .container { max-width: 100% !important; padding: 0 10mm; }
       .btn { display: none; }
     }
-
     @media (max-width: 768px) {
       .nav-menu {
         position: fixed;
@@ -327,7 +326,19 @@
   <div class="practical-bar" id="practicalInfo">
     🕗 Loading... | 🌡️ 25°C | 💰 1 CAD ≈ 5.8 GTQ
   </div>
+<div style="background:#4A7C59;color:white;text-align:center;padding:0.6rem;font-size:0.9rem;position:sticky;top:60px;z-index:99;">
+  🕒 Local Time: <span id="localTime">Loading...</span> | 🌤️ 25°C | 💰 1 CAD ≈ 5.8 GTQ
+</div>
 
+<script>
+  function updateLocalTime() {
+    const now = new Date();
+    const gtTime = now.toLocaleTimeString('en-US', { timeZone: 'America/Guatemala' });
+    document.getElementById('localTime').textContent = gtTime;
+  }
+  updateLocalTime();
+  setInterval(updateLocalTime, 60000);
+</script>
   <a href="#home" class="back-to-top" id="backToTop">↑</a>
 
   <main>
