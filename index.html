@@ -734,20 +734,19 @@ On this journey, Ginger will lead gentle morning Hatha sessions, deeply nurturin
     document.getElementById('show-more-2').style.display = 'none';
   });
 </script>
-<section id="books">
+    <section id="books">
   <h2>Recommended Books</h2>
   <img src="https://guruchancnx.github.io/antigua/IMG_3443.jpeg" alt="Books about Guatemala">
   
-  <div id="books-part1">
-    <p><strong>Silence on the Mountains</strong> – A fantastic book for understanding the civil war.</p>
-    <p><strong>The Art of Political Murder</strong> – Another great book about understanding the civil war.</p>
-    <p><strong>Everyone Who is Here is Gone</strong> – An amazing read on immigration.</p>
-    <p><strong>Jungle of Stone</strong> – A fun travel book; excellent while traveling in Guatemala.</p>
-    <p><strong>Incidents of Travel</strong> – A must-read for archaeology enthusiasts.</p>
-    <p><strong>The Beast</strong> – An insightful look into immigration issues.</p>
-  </div>
+  <p><strong>Silence on the Mountains</strong> – A fantastic book for understanding the civil war.</p>
+  <p><strong>The Art of Political Murder</strong> – Another great book about understanding the civil war.</p>
+  <p><strong>Everyone Who is Here is Gone</strong> – An amazing read on immigration.</p>
+  <p><strong>Jungle of Stone</strong> – A fun travel book; excellent while traveling in Guatemala.</p>
+  <p><strong>Incidents of Travel</strong> – A must-read for archaeology enthusiasts.</p>
+  <p><strong>The Beast</strong> – An insightful look into immigration issues.</p>
   
-  <div id="books-part2" style="display:none;">
+  <!-- Hidden books (not shown, no toggle) -->
+  <div style="display:none;">
     <p><strong>A History of Violence</strong> – Explores why there’s so much crime in Guatemala.</p>
     <p><strong>Bitter Fruit</strong> – Great read about the U.S.-instigated coup of 1954.</p>
     <p><strong>Harsh Times</strong> by Mario Vargas Llosa – Fictionalized account of the 1954 coup.</p>
@@ -756,7 +755,6 @@ On this journey, Ginger will lead gentle morning Hatha sessions, deeply nurturin
     <p><strong>Mr. President</strong> by Miguel Ángel Asturias – Nobel-winning satire of dictatorship.</p>
   </div>
 </section>
-
 <script>
 function toggleBooks() {
   const part2 = document.getElementById('books-part2');
