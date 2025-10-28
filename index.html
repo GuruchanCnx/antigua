@@ -734,27 +734,56 @@ On this journey, Ginger will lead gentle morning Hatha sessions, deeply nurturin
     document.getElementById('show-more-2').style.display = 'none';
   });
 </script>
-    <section id="books">
-  <h2>Recommended Books</h2>
-  <img src="https://guruchancnx.github.io/antigua/IMG_3443.jpeg" alt="Books about Guatemala">
-  
-  <p><strong>Silence on the Mountains</strong> – A fantastic book for understanding the civil war.</p>
-  <p><strong>The Art of Political Murder</strong> – Another great book about understanding the civil war.</p>
-  <p><strong>Everyone Who is Here is Gone</strong> – An amazing read on immigration.</p>
-  <p><strong>Jungle of Stone</strong> – A fun travel book; excellent while traveling in Guatemala.</p>
-  <p><strong>Incidents of Travel</strong> – A must-read for archaeology enthusiasts.</p>
-  <p><strong>The Beast</strong> – An insightful look into immigration issues.</p>
-  
-  <!-- Hidden books (not shown, no toggle) -->
-  <div style="display:none;">
-    <p><strong>A History of Violence</strong> – Explores why there’s so much crime in Guatemala.</p>
-    <p><strong>Bitter Fruit</strong> – Great read about the U.S.-instigated coup of 1954.</p>
-    <p><strong>Harsh Times</strong> by Mario Vargas Llosa – Fictionalized account of the 1954 coup.</p>
-    <p><strong>The Bird Hotel</strong> – Inspiring wanderlust; perfect before, during, or after visiting Lake Atitlán.</p>
-    <p><strong>The Long Night of White Chickens</strong> – A haunting mystery linking Guatemala and the U.S.</p>
-    <p><strong>Mr. President</strong> by Miguel Ángel Asturias – Nobel-winning satire of dictatorship.</p>
+   <!-- RECOMMENDED BOOKS -->
+<section id="books" style="background:#E9E2D0;padding:4.5rem 0;">
+  <div style="width:90%;max-width:1000px;margin:0 auto;padding:0 1rem;">
+    <h2 style="text-align:center;font-family:'Playfair Display',serif;font-size:2rem;color:#2D3142;margin:-60px auto 2.5rem;padding-top:80px;position:relative;z-index:10;">
+      Recommended Books
+    </h2>
+    <div style="background:white;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,0.06);margin-bottom:2rem;padding:2rem;">
+      <img src="https://guruchancnx.github.io/antigua/IMG_3443.jpeg" 
+           alt="Books about Guatemala" 
+           style="width:100%;max-height:250px;object-fit:cover;border-radius:10px;margin-bottom:1.5rem;">
+
+      <div id="books-part1">
+        <p><strong>Silence on the Mountains</strong> – A profound account of Guatemala’s civil war through oral histories.</p>
+        <p><strong>The Art of Political Murder</strong> – Investigates the assassination of a Guatemalan bishop during the war.</p>
+        <p><strong>Everyone Who is Here is Gone</strong> – A moving novel on Central American migration to the U.S.</p>
+        <p><strong>Jungle of Stone</strong> – Chronicles the 19th-century discovery of Mayan ruins—perfect travel reading.</p>
+        <p><strong>Incidents of Travel</strong> – The classic 1841 travelogue that sparked Mayan archaeology.</p>
+        <p><strong>The Beast</strong> – A harrowing journey through the dangers of migrant routes to the U.S.</p>
+      </div>
+
+      <div id="books-part2" style="display:none;">
+        <p><strong>A History of Violence</strong> – Explores roots of crime in post-war Guatemala.</p>
+        <p><strong>Bitter Fruit</strong> – Exposes the 1954 U.S.-backed coup that shaped modern Guatemala.</p>
+        <p><strong>The Bird Hotel</strong> – A lyrical novel set around Lake Atitlán—ideal before or after your retreat.</p>
+        <p><strong>The Long Night of White Chickens</strong> – A haunting mystery linking Guatemala and the U.S.</p>
+        <p><strong>Harsh Times</strong> by Mario Vargas Llosa – A fictionalized account of the 1954 coup.</p>
+        <p><strong>Mr. President</strong> by Miguel Ángel Asturias – A Nobel-winning satire of dictatorship.</p>
+      </div>
+
+      <button onclick="toggleBooks()" 
+              style="display:block;margin:1rem auto;background:#4A7C59;color:white;border:none;padding:0.75rem 1.5rem;border-radius:8px;cursor:pointer;font-family:'Playfair Display',serif;font-weight:600;">
+        Click to Expand
+      </button>
+    </div>
   </div>
 </section>
+
+<script>
+  function toggleBooks() {
+    const part2 = document.getElementById('books-part2');
+    const btn = event.target;
+    if (part2.style.display === 'none' || part2.style.display === '') {
+      part2.style.display = 'block';
+      btn.textContent = 'Show Less';
+    } else {
+      part2.style.display = 'none';
+      btn.textContent = 'Click to Expand';
+    }
+  }
+</script>
 <script>
 function toggleBooks() {
   const part2 = document.getElementById('books-part2');
