@@ -362,6 +362,72 @@ main {
   </section>
 
   <!-- BIOS -->
+  
+  <!-- MEET YOUR GUIDES -->
+<section id="bios">
+  <div style="width:90%;max-width:1000px;margin:0 auto;padding:0 1rem;">
+    <h2 style="text-align:center;font-family:'Playfair Display',serif;font-size:2rem;color:#2D3142;margin:-60px auto 2.5rem;padding-top:80px;position:relative;z-index:10;">
+      Meet Your Guides
+    </h2>
+    <div style="display:flex;gap:2rem;margin-top:1.5rem;flex-wrap:wrap;justify-content:center;">
+      
+      <!-- JEAN -->
+      <div style="flex:1;min-width:280px;background:white;padding:2rem;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,0.06);text-align:center;max-width:450px;">
+        <img src="https://guruchancnx.github.io/antigua/namaste-jean.png" 
+             alt="Jean Amabile" 
+             style="width:130px;height:130px;border-radius:50%;object-fit:cover;margin:0 auto 1.2rem;background:#E9E2D0;display:flex;align-items:center;justify-content:center;font-size:3.2rem;color:#2D3142;font-weight:bold;">
+        <h3>Jean Amabile</h3>
+        <div id="jean-part1">
+          Jean’s love affair with Antigua, Guatemala, began over two decades ago. In 1997, she and her family started exploring Central America—and two years later, during a magical trip to Guatemala in 1999, they fell head over heels for Antigua’s cobblestone charm...
+        </div>
+        <div id="jean-part2" style="display:none;">
+          ...That very year, Jean met Ginger—a meeting that would blossom into a deep friendship and shared vision. Ginger soon became Jean’s yoga mentor, and now, after countless journeys between continents, the two are joining forces to create a truly special retreat. A certified Yin Yoga teacher and skilled practitioner of Tibetan sound bowls, Jean divides her year between Chiang Mai, Thailand; Toronto, Canada; and the San Francisco Bay Area. During the retreat, she’ll guide you through deeply restorative Yin Yoga sessions and soothing sound healing experiences.
+        </div>
+        <button onclick="toggleBio('jean')" 
+                style="background:#4A7C59;color:white;border:none;padding:0.5rem 1rem;border-radius:6px;margin-top:1rem;cursor:pointer;font-size:0.95rem;">
+          Read More
+        </button>
+      </div>
+
+      <!-- GINGER -->
+      <div style="flex:1;min-width:280px;background:white;padding:2rem;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,0.06);text-align:center;max-width:450px;">
+        <img src="https://guruchancnx.github.io/antigua/IMG_3424.jpeg" 
+             alt="Ginger Hooven" 
+             style="width:130px;height:130px;border-radius:50%;object-fit:cover;margin:0 auto 1.2rem;background:#E9E2D0;display:flex;align-items:center;justify-content:center;font-size:3.2rem;color:#2D3142;font-weight:bold;">
+        <h3>Ginger Hooven (Kamalesh)</h3>
+        <div id="ginger-part1">
+          Ginger Kamalesh Hooven is a seasoned yoga therapist and Ayurvedic practitioner with decades of experience helping students cultivate physical vitality, emotional resilience, and spiritual clarity...
+        </div>
+        <div id="ginger-part2" style="display:none;">
+          ...Her teaching weaves classical yoga with somatic movement and conscious breathwork—rooted in the lineage of the Mount Madonna Institute, where she serves as a senior faculty member. Ginger is also the founder of Casa San Juan, a peaceful sanctuary nestled in San Juan del Obispo. On this journey, Ginger will lead gentle morning Hatha sessions, deeply nurturing restorative yoga, and evening Yoga Nidra practices—inviting you into profound relaxation and presence.
+        </div>
+        <button onclick="toggleBio('ginger')" 
+                style="background:#4A7C59;color:white;border:none;padding:0.5rem 1rem;border-radius:6px;margin-top:1rem;cursor:pointer;font-size:0.95rem;">
+          Read More
+        </button>
+        <p style="margin-top:1rem;">
+          <a href="https://www.casasanjuan.com.gt" target="_blank" style="color:#C75B39;text-decoration:underline;">Visit Casa San Juan</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleBio(person) {
+    const part2 = document.getElementById(`${person}-part2`);
+    const btn = event.target;
+    if (part2.style.display === 'none' || part2.style.display === '') {
+      part2.style.display = 'block';
+      btn.textContent = 'Show Less';
+    } else {
+      part2.style.display = 'none';
+      btn.textContent = 'Read More';
+    }
+  }
+</script>
+  
+  
   <section id="bios">
     <div class="container">
       <h2 class="section-title">Meet Your Guides</h2>
