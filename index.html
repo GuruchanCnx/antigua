@@ -535,6 +535,12 @@ main {
      style="display:inline-block;background:#2D3142;color:white;padding:0.95rem 2.2rem;text-decoration:none;border-radius:8px;font-family:'Playfair Display',serif;font-weight:600;">
     Download Itinerary (PDF)
   </a>
+  <div style="text-align:center; margin:2rem 0;">
+  <button onclick="generatePDF()" 
+          style="background:#2D3142; color:white; border:none; padding:0.9rem 2.2rem; border-radius:8px; font-family:'Playfair Display',serif; font-weight:600; font-size:1.05rem; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+    Download Retreat Brochure (PDF)
+  </button>
+</div>
 
   <!-- CUISINE -->
   <section id="cuisine">
@@ -1056,6 +1062,110 @@ main {
       }
     }
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+  function generatePDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF('p', 'mm', 'a4');
+    let y = 20;
+
+    // Helper: add text with wrapping
+    const addText = (text, x, size = 12, style = 'normal', lineHeight = 7) => {
+      doc.setFont('times', style);
+      doc.setFontSize(size);
+      const lines = doc.splitTextToSize(text, 170);
+      doc.text(lines, x, y);
+      y += lines.length * lineHeight + 4;
+    };
+
+    // Logo (text-based since we can't embed images reliably in jsPDF without base64)
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(24);
+    doc.setTextColor(45, 49, 66);
+    doc.text("Journey Together", 20, y);
+    y += 12;
+
+    // Title
+    doc.setFont('times', 'bold');
+    doc.setFontSize(20);
+    doc.text("Guatemala Ayurvedic Retreat", 20, y);
+    y += 10;
+    doc.setFont('times', 'italic');
+    doc.setFontSize(14);
+    doc.text("June 27 – July 5, 2026 • Casa San Juan, San Juan del Obispo", 20, y);
+    y += 12;
+
+    // Core Idea
+    doc.setFont('times', 'bold');
+    doc.setFontSize(16);
+    doc.text("Return to What Matters", 20, y);
+    y += 8;
+    doc.setFont('times', 'normal');
+    doc.setFontSize(12);
+    doc.text("An 8-day Ayurvedic & cultural retreat for women in Guatemala.", 20, y);
+    y += 10;
+
+    // Meet Your Guides
+    doc.setFont('times', 'bold');
+    doc.setFontSize(16);
+    doc.text("Meet Your Guides", 20, y);
+    y += 8;
+    addText("Jean Amabile (73): Canadian wellness guide and Ayurvedic nutritionist. Creates intimate retreats where women reconnect through food, silence, and sisterhood.", 20);
+    addText("Ginger Hooven (Kamalesh): Host and yoga teacher at Casa San Juan. Offers online yoga classes in English and Spanish.", 20);
+
+    // Itinerary (Most Important)
+    doc.setFont('times', 'bold');
+    doc.setFontSize(16);
+    doc.text("8-Day Itinerary", 20, y);
+    y += 8;
+    addText("Sat, June 27: Arrival at Casa San Juan. Light vegetarian dinner. Opening circle.", 20);
+    addText("Sun, June 28: San Juan del Obispo village tour. Lunch at La Casa de Marc.", 20);
+    addText("Mon, June 29: Antigua walking tour with Elizabeth Bell. Lunch at Santo Domingo.", 20);
+    addText("Tue, June 30: Highland villages (San Juan La Laguna, San Antonio Palopó).", 20);
+    addText("Wed, July 1: Antigua Artisan Market. Yoga Nidra.", 20);
+    addText("Thu, July 2: Cooking class with Jean & Ginger at Casa San Juan.", 20);
+    addText("Fri, July 3: Iximche Mayan Ruins day trip. Optional fire ceremony.", 20);
+    addText("Sat, July 4: Spa. Farewell dinner at Mesón Panza Verde.", 20);
+    addText("Sun, July 5: Departure.", 20);
+
+    // Cuisine
+    doc.setFont('times', 'bold');
+    doc.setFontSize(16);
+    doc.text("Ayurvedic Vegetarian Cuisine", 20, y);
+    y += 8;
+    addText("All meals are 100% vegetarian, seasonal, and prepared with Ayurvedic balance.", 20);
+    addText("• Pepián de Calabaza: Nutty stew with squash, sesame, and warm spices", 20);
+    addText("• Tamales Colorados: Masa wrapped in banana leaves", 20);
+    addText("• Jocón de Hongos: Green tomatillo-cilantro stew", 20);
+
+    // Practical Guide
+    doc.setFont('times', 'bold');
+    doc.setFontSize(16);
+    doc.text("Practical Guide", 20, y);
+    y += 8;
+    addText("Clothing: Yoga layers, walking sandals, light rain jacket, casual dress for farewell dinner.", 20);
+    addText("Beauty: Minimal makeup, favorite earrings, reef-safe sunscreen.", 20);
+    addText("Money: 1 CAD ≈ 5.8 GTQ. $20–40 CAD/day for souvenirs.", 20);
+
+    // Books
+    doc.setFont('times', 'bold');
+    doc.setFontSize(16);
+    doc.text("Recommended Books", 20, y);
+    y += 8;
+    addText("• Silence on the Mountains – Oral histories of Guatemala’s civil war", 20);
+    addText("• Jungle of Stone – 19th-century discovery of Mayan ruins", 20);
+    addText("• Incidents of Travel – Classic 1841 Mayan archaeology travelogue", 20);
+
+    // Contact
+    doc.setFont('times', 'bold');
+    doc.setFontSize(16);
+    doc.text("Reserve Your Space", 20, y);
+    y += 8;
+    addText("Only 11 spots available. Email Jean: jeanmamabile@gmail.com", 20);
+
+    doc.save('Journey-Together-Guatemala-Retreat-2026.pdf');
+  }
+</script>
   <a href="#home" style="position:fixed;bottom:2rem;right:1.5rem;width:48px;height:48px;background:#4A7C59;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:90;">↑</a>
 </body>
 </html>
