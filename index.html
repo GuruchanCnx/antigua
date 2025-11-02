@@ -477,13 +477,13 @@ main {
       </div>
     </div>
 </div>
-  <div style="text-align:center; margin:2rem 0;">
-  <button onclick="generatePDF()" 
-          style="background:#2D3142; color:white; border:none; padding:0.9rem 2.2rem; border-radius:8px; font-family:'Playfair Display',serif; font-weight:600; font-size:1.05rem; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
-    Download Retreat Brochure (PDF)
-  </button>
+<div style="text-align:center; margin:2rem 0;">
+  <a href="brochure-web.pdf" 
+     onclick="gtag('event', 'download', {event_label: 'brochure-web.pdf'});"
+     style="display:inline-block; background:#000000; color:#FFFFFF; padding:0.95rem 2.2rem; text-decoration:none; border-radius:8px; font-family:'Playfair Display',serif; font-weight:600; font-size:1.05rem; transition:all 0.3s;">
+    📥 Download Brochure
+  </a>
 </div>
-
   <!-- CUISINE -->
   <section id="cuisine">
     <div class="container">
