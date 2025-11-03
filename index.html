@@ -323,6 +323,24 @@ section:first-of-type {
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,500&display=swap" rel="stylesheet">
 </head>
+<script>
+  // Fix practical bar height on rotate
+  function adjustPracticalBar() {
+    const bar = document.querySelector('.practical-bar');
+    if (bar) {
+      // Reset and let CSS handle sizing
+      bar.style.height = 'auto';
+      bar.style.padding = window.innerWidth > 768 ? '0.6rem 0' : '0.4rem 0';
+    }
+  }
+
+  // Run on load and resize
+  document.addEventListener('DOMContentLoaded', adjustPracticalBar);
+  window.addEventListener('resize', adjustPracticalBar);
+  window.addEventListener('orientationchange', function() {
+    setTimeout(adjustPracticalBar, 300); // Slight delay for iOS
+  });
+</script>
  <body>
 </nav>
   <nav>
