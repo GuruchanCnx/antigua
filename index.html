@@ -308,6 +308,16 @@ main {
     padding-top: 120px !important;
   }
 }
+/* Remove white gap under practical bar */
+main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Ensure first section starts right after practical bar */
+section:first-of-type {
+  padding-top: 100px !important; /* = height of practical bar + navbar */
+}
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,500&display=swap" rel="stylesheet">
 </head>
