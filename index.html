@@ -370,7 +370,112 @@ main {
   </section>
 
   <!-- BIOS -->
- 
+ <div style="background:#F8F4E3; border-radius:14px; padding:2rem; margin:2.5rem auto; max-width:800px; box-shadow:0 6px 20px rgba(0,0,0,0.06);">
+  <h3 style="font-family:'Playfair Display',serif; color:#2D3142; text-align:center; margin-bottom:1.2rem; font-size:1.8rem;">
+    Listen to Jean’s Voice from Guatemala
+  </h3>
+  
+  <div style="background:white; border-radius:12px; padding:1.5rem; margin:1.5rem 0; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+    <div style="display:flex; align-items:center; justify-content:center; gap:1.5rem; flex-wrap:wrap;">
+      <!-- Play/Pause Button -->
+      <button id="playPauseBtn" 
+              style="width:60px; height:60px; border-radius:50%; background:#C75B39; color:white; border:none; display:flex; align-items:center; justify-content:center; font-size:1.4rem; cursor:pointer; transition:all 0.3s; box-shadow:0 4px 10px rgba(199,91,57,0.3);">
+        <span id="playPauseIcon">▶</span>
+      </button>
+      
+      <!-- Progress Bar Container -->
+      <div style="flex:1; max-width:400px; margin:0 1rem;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+          <span id="currentTime" style="font-size:0.9rem; color:#555;">0:00</span>
+          <span id="duration" style="font-size:0.9rem; color:#555;">0:00</span>
+        </div>
+        <div style="width:100%; height:8px; background:#E9E2D0; border-radius:10px; overflow:hidden; cursor:pointer;">
+          <div id="progressBar" style="height:100%; background:#C75B39; border-radius:10px; width:0%;"></div>
+        </div>
+      </div>
+      
+      <!-- Volume Control -->
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span style="font-size:1.2rem;">🔊</span>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1" 
+               style="width:80px; -webkit-appearance:none; height:5px; background:#E9E2D0; border-radius:10px; outline:none;">
+      </div>
+    </div>
+  </div>
+  
+  <p style="text-align:center; font-style:italic; color:#555; margin-top:0.5rem; line-height:1.6;">
+    Jean shares why this Guatemala retreat is a sacred homecoming—not just a vacation
+  </p>
+  
+  <!-- Hidden Audio Element -->
+  <audio id="retreatAudio" style="display:none;">
+    <source src="Journey-Together.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const audio = document.getElementById('retreatAudio');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const playPauseIcon = document.getElementById('playPauseIcon');
+    const progressBar = document.getElementById('progressBar');
+    const currentTimeEl = document.getElementById('currentTime');
+    const durationEl = document.getElementById('duration');
+    const volumeSlider = document.getElementById('volumeSlider');
+    
+    // Format time as MM:SS
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+    
+    // Play/Pause toggle
+    playPauseBtn.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        playPauseIcon.textContent = '❚❚';
+      } else {
+        audio.pause();
+        playPauseIcon.textContent = '▶';
+      }
+    });
+    
+    // Update progress bar
+    audio.addEventListener('timeupdate', function() {
+      const progress = (audio.currentTime / audio.duration) * 100;
+      progressBar.style.width = `${progress}%`;
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+    });
+    
+    // Set duration when loaded
+    audio.addEventListener('loadedmetadata', function() {
+      durationEl.textContent = formatTime(audio.duration);
+    });
+    
+    // Seek functionality
+    progressBar.parentElement.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const width = this.offsetWidth;
+      const clickX = e.clientX - rect.left;
+      const percent = clickX / width;
+      audio.currentTime = percent * audio.duration;
+    });
+    
+    // Volume control
+    volumeSlider.addEventListener('input', function() {
+      audio.volume = this.value;
+    });
+    
+    // Reset play button when audio ends
+    audio.addEventListener('ended', function() {
+      playPauseIcon.textContent = '▶';
+      progressBar.style.width = '0%';
+      currentTimeEl.textContent = '0:00';
+    });
+  });
+</script>
   <!-- MEET YOUR GUIDES -->
 <section id="bios">
   <div style="width:90%;max-width:1000px;margin:0 auto;padding:0 1rem;">
