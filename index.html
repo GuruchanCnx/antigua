@@ -406,6 +406,10 @@ section:first-of-type {
   <h3 style="font-family:'Playfair Display',serif; color:#2D3142; text-align:center; margin-bottom:1.2rem; font-size:1.8rem;">
     Listen to an overview of Journey Together's retreat
   </h3>
+  <div style="background:#F8F4E3; border-radius:14px; padding:2rem; margin:2.5rem auto; max-width:800px; box-shadow:0 6px 20px rgba(0,0,0,0.06);">
+  <h3 style="font-family:'Playfair Display',serif; color:#2D3142; text-align:center; margin-bottom:1.2rem; font-size:1.8rem;">
+    Listen to Jean's Voice from Guatemala
+  </h3>
   
   <div style="background:white; border-radius:12px; padding:1.5rem; margin:1.5rem 0; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
     <div style="display:flex; align-items:center; justify-content:center; gap:1.5rem; flex-wrap:wrap;">
@@ -426,11 +430,16 @@ section:first-of-type {
         </div>
       </div>
       
-      <!-- Volume Control -->
-      <div style="display:flex; align-items:center; gap:8px;">
+      <!-- Volume Control (Desktop Only) -->
+      <div class="volume-control" style="display:flex; align-items:center; gap:8px;">
         <span style="font-size:1.2rem;">🔊</span>
         <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1" 
                style="width:80px; -webkit-appearance:none; height:5px; background:#E9E2D0; border-radius:10px; outline:none;">
+      </div>
+      
+      <!-- Mobile Volume Message -->
+      <div class="mobile-volume" style="display:none; font-size:0.85rem; color:#C75B39; text-align:center;">
+        Volume controlled by your device
       </div>
     </div>
   </div>
@@ -441,7 +450,7 @@ section:first-of-type {
   
   <!-- Hidden Audio Element -->
   <audio id="retreatAudio" style="display:none;">
-    <source src="Journey-Together .mp3" type="audio/mpeg">
+    <source src="Journey Together .mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 </div>
@@ -455,6 +464,17 @@ section:first-of-type {
     const currentTimeEl = document.getElementById('currentTime');
     const durationEl = document.getElementById('duration');
     const volumeSlider = document.getElementById('volumeSlider');
+    const volumeControl = document.querySelector('.volume-control');
+    const mobileVolume = document.querySelector('.mobile-volume');
+    
+    // Detect mobile device
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    // Show appropriate volume control
+    if (isMobile) {
+      volumeControl.style.display = 'none';
+      mobileVolume.style.display = 'block';
+    }
     
     // Format time as MM:SS
     function formatTime(seconds) {
@@ -466,7 +486,9 @@ section:first-of-type {
     // Play/Pause toggle
     playPauseBtn.addEventListener('click', function() {
       if (audio.paused) {
-        audio.play();
+        audio.play().catch(e => {
+          console.log("Playback requires user gesture on mobile:", e);
+        });
         playPauseIcon.textContent = '❚❚';
       } else {
         audio.pause();
@@ -495,10 +517,12 @@ section:first-of-type {
       audio.currentTime = percent * audio.duration;
     });
     
-    // Volume control
-    volumeSlider.addEventListener('input', function() {
-      audio.volume = this.value;
-    });
+    // Volume control (desktop only)
+    if (!isMobile) {
+      volumeSlider.addEventListener('input', function() {
+        audio.volume = this.value;
+      });
+    }
     
     // Reset play button when audio ends
     audio.addEventListener('ended', function() {
