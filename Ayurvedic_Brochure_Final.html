@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurvedic Rituals Brochure - Final Version</title>
+    <style>
+        /* --- FONTS --- */
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+        /* --- COLORS --- */
+        :root {
+            --bg-cream: #F8F4E3;
+            --text-indigo: #2D3142;
+            --accent-terra: #C75B39;
+            --white: #ffffff;
+            --shadow: rgba(0,0,0,0.1);
+        }
+
+        /* --- RESET --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background-color: #555; /* Dark for screen viewing */
+            font-family: 'Lora', serif;
+            color: var(--text-indigo);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        /* --- PAGE SETTINGS (Letter Size) --- */
+        .page {
+            width: 8.5in;
+            height: 11in;
+            background-color: var(--bg-cream);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            page-break-after: always; /* Force new page for print */
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-terra);
+        }
+
+        h1 { font-size: 34pt; line-height: 1.1; margin-bottom: 15px; font-weight: 700; }
+        h2 { font-size: 18pt; color: var(--text-indigo); font-weight: 400; font-style: italic; margin-bottom: 20px; }
+        h3 { font-size: 22pt; margin-bottom: 15px; font-weight: 700; border-bottom: 2px solid var(--accent-terra); display: inline-block; padding-bottom: 5px;}
+        
+        p { font-size: 11pt; line-height: 1.6; margin-bottom: 14px; }
+        li { font-size: 11pt; line-height: 1.6; margin-bottom: 8px; margin-left: 20px; }
+
+        .section-header {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 10pt;
+            color: var(--accent-terra);
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid rgba(199, 91, 57, 0.3);
+            display: block;
+        }
+
+        .quote-box {
+            background-color: rgba(255,255,255,0.6);
+            border-left: 4px solid var(--accent-terra);
+            padding: 20px;
+            font-style: italic;
+            margin-top: 20px;
+            color: #4a4a4a;
+        }
+
+        /* --- IMAGES --- */
+        .hero-img {
+            width: 100%;
+            height: 45%;
+            object-fit: cover;
+            border-bottom: 8px solid var(--accent-terra);
+        }
+
+        .side-img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 45%;
+            height: 100%;
+            object-fit: cover;
+            border-left: 8px solid var(--accent-terra);
+            z-index: 0;
+        }
+
+        /* --- LAYOUT CONTAINERS --- */
+        .content-wrapper {
+            padding: 50px;
+            position: relative;
+            z-index: 1;
+            height: 100%;
+        }
+
+        .split-layout {
+            display: flex;
+            gap: 40px;
+            margin-top: 20px;
+        }
+        .col { flex: 1; }
+
+        /* --- FOOTER --- */
+        .footer {
+            position: absolute;
+            bottom: 40px;
+            left: 50px;
+            right: 50px;
+            border-top: 1px solid rgba(45, 49, 66, 0.2);
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 9pt;
+            color: rgba(45, 49, 66, 0.6);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- PRINT BUTTON --- */
+        .btn-download {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-terra);
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            font-weight: bold;
+        }
+        .btn-download:hover { transform: translateY(-2px); }
+
+        /* --- PRINT MEDIA QUERY --- */
+        @media print {
+            body { 
+                background: none; 
+                padding: 0; 
+                display: block; 
+            }
+            .page { 
+                margin: 0; 
+                box-shadow: none; 
+                width: 100%; 
+                height: 100%; 
+                page-break-after: always; 
+            }
+            .btn-download { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn-download" onclick="window.print()">Download PDF</button>
+
+    <!-- PAGE 1: COVER -->
+    <div class="page">
+        <!-- New Image: Peaceful woman meditating -->
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/9915129398855659933" class="hero-img" style="height: 55%;" alt="Woman meditating peacefully">
+        
+        <div class="content-wrapper" style="text-align: center; padding-top: 40px;">
+            <h1>5 Ayurvedic Rituals<br>for Women in Transition</h1>
+            <h2>A Gentle Guide to Finding Balance<br>During Life's Changing Seasons</h2>
+            
+            <div style="margin-top: 60px;">
+                <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: bold; color: var(--accent-terra);">By Jean Amabile</p>
+                <p style="font-size: 12pt;">Ayurvedic Nutritionist & Wellness Guide</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <span>Journey Together Retreats</span>
+            <span>Page 1</span>
+        </div>
+    </div>
+
+    <!-- PAGE 2: INTRO -->
+    <div class="page">
+        <!-- Image: Lush Garden -->
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/11730399040086636729" class="side-img" alt="Lush Garden">
+        
+        <div class="content-wrapper" style="width: 55%; background-color: var(--bg-cream);">
+            <h1>Introduction</h1>
+            <h2 style="font-size: 14pt; border-bottom: 2px solid var(--accent-terra); display: inline-block; padding-bottom: 10px; margin-bottom: 30px;">The Wisdom of Seasons Within Us</h2>
+            
+            <p><strong>Dear Sister,</strong></p>
+            <p>At 73 years old, I've walked through many seasons of life—motherhood, career, empty nesting, and now, this beautiful chapter of elderhood. What I've learned is this: life's transitions are not problems to solve, but sacred thresholds to cross.</p>
+            <p>Just as Guatemala's rainy season brings both abundance and challenges to Casa San Juan's garden, our inner landscapes transform too. The Ayurvedic tradition teaches us that during times of change—whether it's retirement, loss, or simply aging—our bodies and spirits need special care.</p>
+            <p>This guide shares five simple yet profound Ayurvedic rituals I've practiced for decades.</p>
+            
+            <p style="margin-top: 40px; font-family: 'Playfair Display', serif; font-size: 16pt; color: var(--accent-terra);">With warmth,<br>Jean Amabile</p>
+        </div>
+
+        <div class="footer">
+            <span>Introduction</span>
+            <span>Page 2</span>
+        </div>
+    </div>
+
+    <!-- PAGE 3: RITUAL 1 -->
+    <div class="page">
+        <!-- New Image: Massage Oil/Spa -->
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/7357308781112392909" class="hero-img" style="height: 38%;" alt="Ayurvedic Massage Oil">
+        
+        <div class="content-wrapper">
+            <h3>Ritual #1: Morning Abhyanga</h3>
+            <p style="font-style: italic; margin-top: -10px; color: #666;">Self-Massage with Warm Oil</p>
+
+            <div class="split-layout">
+                <div class="col">
+                    <span class="section-header">Why It Matters</span>
+                    <p>When life feels uncertain, our nervous system craves grounding touch. Warm oil massage calms <em>Vata</em> (the energy of movement) and creates a protective boundary around your energy field.</p>
+                    
+                    <div class="quote-box">
+                        "The oil became a boundary between me and the world's demands. After three weeks, I realized: I was no longer afraid of this new chapter."
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <span class="section-header">The Simple Practice</span>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>Choose Oil:</strong> Sesame (cool seasons) or Coconut (warm days).</li>
+                        <li><strong>Warm It:</strong> Place bottle in a bowl of warm water.</li>
+                        <li><strong>Sequence:</strong> Scalp (2m), Face (1m), Body (long strokes to heart), Feet (3m).</li>
+                        <li><strong>Rest:</strong> Sit for 5 mins before showering.</li>
+                    </ul>
+                    <span class="section-header">When</span>
+                    <p>Upon waking, before breakfast. Especially effective during times of anxiety.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>Ritual #1</span>
+            <span>Page 3</span>
+        </div>
+    </div>
+
+    <!-- PAGE 4: RITUAL 2 -->
+    <div class="page">
+        <!-- Image: Tea Cup -->
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/13648443084472640254" class="side-img" style="width: 45%;" alt="Warm Lemon Water">
+        
+        <div class="content-wrapper" style="width: 55%; background: var(--bg-cream);">
+            <h3>Ritual #2: Warm Water & Lemon</h3>
+            <p style="font-style: italic; margin-top: -10px; color: #666;">Reigniting Agni</p>
+            
+            <span class="section-header">Why It Matters</span>
+            <p>Digestion (agni) is the foundation of health. During transitions, our digestive fire fluctuates. Warm lemon water reignites it gently, flushing toxins that accumulate during stress.</p>
+
+            <span class="section-header">The Simple Practice</span>
+            <ol style="margin-left: 20px; line-height: 1.8;">
+                <li><strong>Night Before:</strong> Fill a glass with water and a lemon slice.</li>
+                <li><strong>Morning:</strong> Drink at room temperature.</li>
+                <li><strong>Breathe:</strong> 3 deep breaths before first sip.</li>
+                <li><strong>Wait:</strong> 15-20 mins before eating.</li>
+            </ol>
+
+            <div class="quote-box">
+                "Ginger suggested this simple practice. 'It's not the water,' she explained. 'It's the pause between waking and doing. That's where clarity lives.'"
+            </div>
+        </div>
+        <div class="footer">
+            <span>Ritual #2</span>
+            <span>Page 4</span>
+        </div>
+    </div>
+
+    <!-- PAGE 5: RITUAL 3 -->
+    <div class="page">
+        <!-- Image: Journaling -->
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/17376430866429332746" class="hero-img" style="height: 38%;" alt="Journaling by Candlelight">
+        
+        <div class="content-wrapper">
+            <h3>Ritual #3: Evening Journaling</h3>
+            <p style="font-style: italic; margin-top: -10px; color: #666;">With Moon Questions</p>
+
+            <div class="split-layout">
+                <div class="col">
+                    <span class="section-header">Why It Matters</span>
+                    <p>Nighttime is ruled by Vata, which can make sleep restless. Journaling creates a container for swirling thoughts, allowing them to be witnessed rather than carried into dreams.</p>
+                    
+                    <div class="quote-box">
+                        "One night I wrote: 'What am I releasing today?' The answer came: 'The need to have said everything.' That simple question created a portal through grief."
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <span class="section-header">Ask Just ONE Question</span>
+                    <ul style="list-style: none; margin: 0;">
+                        <li style="margin-bottom: 8px;">🌙 <strong>Mon:</strong> What am I releasing today?</li>
+                        <li style="margin-bottom: 8px;">🌙 <strong>Tue:</strong> Where did I feel most alive?</li>
+                        <li style="margin-bottom: 8px;">🌙 <strong>Wed:</strong> What is my body asking for?</li>
+                        <li style="margin-bottom: 8px;">🌙 <strong>Thu:</strong> Who blessed me today?</li>
+                        <li style="margin-bottom: 8px;">🌙 <strong>Fri:</strong> What truth must I speak?</li>
+                        <li style="margin-bottom: 8px;">🌙 <strong>Sat:</strong> What beauty did I witness?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>Ritual #3</span>
+            <span>Page 5</span>
+        </div>
+    </div>
+
+    <!-- PAGE 6: RITUAL 4 -->
+    <div class="page">
+        <!-- Image: Breathing/Yoga -->
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/13379287784948522054" class="side-img" style="left: 0; right: auto; border-left: none; border-right: 8px solid var(--accent-terra);" alt="Pranayama Breathing">
+        
+        <div class="content-wrapper" style="width: 55%; margin-left: 45%; background: var(--bg-cream);">
+            <h3>Ritual #4: Nadi Shodhana</h3>
+            <p style="font-style: italic; margin-top: -10px; color: #666;">Alternate Nostril Breathing</p>
+            
+            <span class="section-header">Why It Matters</span>
+            <p>When life shifts, breath becomes shallow. This practice balances the left (moon/cooling) and right (sun/heating) brain hemispheres, harmonizing intuition and logic.</p>
+
+            <span class="section-header">The Sequence</span>
+            <ul style="margin-left: 20px;">
+                <li><strong>Sit Comfortably:</strong> Spine straight.</li>
+                <li><strong>Hand:</strong> Right hand, index & middle fingers tucked.</li>
+                <li><strong>Inhale Left (4):</strong> Close right nostril.</li>
+                <li><strong>Hold Both (2):</strong> Brief pause.</li>
+                <li><strong>Exhale Right (6):</strong> Open right.</li>
+                <li><strong>Inhale Right (4):</strong> Keep left closed.</li>
+                <li><strong>Exhale Left (6):</strong> Complete the cycle.</li>
+            </ul>
+
+            <div class="quote-box">
+                "During an anxious moment, Ginger reminded me: 'Your breath is always home.' Today, I teach this to every woman who joins our circle."
+            </div>
+        </div>
+        <div class="footer">
+            <span>Ritual #4</span>
+            <span>Page 6</span>
+        </div>
+    </div>
+
+    <!-- PAGE 7: RITUAL 5 -->
+    <div class="page">
+        <!-- Image: Healthy Food -->
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/1020173071931298057" class="hero-img" style="height: 38%;" alt="Ayurvedic Sattvic Meal">
+        
+        <div class="content-wrapper">
+            <h3>Ritual #5: Sattvic Evening Meal</h3>
+            
+            <div class="split-layout">
+                <div class="col">
+                    <span class="section-header">Why It Matters</span>
+                    <p>In Ayurveda, food is medicine. During transitions, we need <em>sattvic</em> (pure) foods—nourishing but light enough to support restful sleep and clear thinking.</p>
+                    <span class="section-header">3 Sattvic Staples</span>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>Kitchari:</strong> Mung beans & basmati rice.</li>
+                        <li><strong>Steamed Greens:</strong> With lemon and ghee.</li>
+                        <li><strong>Spiced Milk:</strong> Almond milk with cardamom.</li>
+                    </ul>
+                </div>
+                
+                <div class="col">
+                    <span class="section-header">Mindful Eating</span>
+                    <p><strong>Timing:</strong> Eat by 7 PM.</p>
+                    <p><strong>Portion:</strong> ½ Veg, ¼ Grain, ¼ Protein.</p>
+                    <p><strong>Focus:</strong> No screens. Cook with love.</p>
+                    
+                    <div class="quote-box">
+                        "When I began cooking simple sattvic meals—even when eating alone—something shifted. The act became a promise: 'You are worth nourishing.'"
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>Ritual #5</span>
+            <span>Page 7</span>
+        </div>
+    </div>
+
+    <!-- PAGE 8: CONCLUSION -->
+    <div class="page">
+        <!-- Image: Textiles/Sisterhood -->
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/16505970387675145404" class="hero-img" style="height: 40%;" alt="Guatemalan Textiles">
+        
+        <div class="content-wrapper" style="text-align: center; padding: 30px 80px;">
+            <h1>Bringing It All Together</h1>
+            <p><strong>Dear Sister,</strong></p>
+            <p>These rituals are not tasks to check off—they are invitations to return to yourself. Your invitation this week: Choose just ONE ritual. The one that resonates most.</p>
+            
+            <div style="width: 100px; height: 2px; background: var(--accent-terra); margin: 30px auto;"></div>
+            
+            <h3>A Final Gift: Your Next Step</h3>
+            <p>Join our intimate circle of sisters for an 8-day Ayurvedic & cultural retreat in Guatemala this June at <strong>Casa San Juan</strong>.</p>
+            
+            <div style="background-color: rgba(199, 91, 57, 0.1); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                <p style="margin-top: 10px; font-weight: bold; color: var(--accent-terra); font-size: 14pt;">
+                    Reply to this email with "GUATEMALA"
+                </p>
+                <p style="font-size: 10pt; color: var(--text-indigo);">to receive the complete retreat brochure.</p>
+            </div>
+            
+            <p style="font-style: italic; margin-top: 30px;">"Behind the vine-filled wall, you'll find a lush garden—and a circle of sisters waiting to welcome you."</p>
+        </div>
+        
+        <div class="footer">
+            <span>Journey Together Retreats</span>
+            <span>Page 8</span>
+        </div>
+    </div>
+
+</body>
+</html>
